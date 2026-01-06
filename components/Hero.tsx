@@ -1,0 +1,61 @@
+import React from 'react';
+import { ArrowRight } from 'lucide-react';
+
+const Hero: React.FC = () => {
+  return (
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-wallaby-dark pt-20">
+      {/* Background Graphic Elements */}
+      <div className="absolute inset-0 z-0 opacity-75 pointer-events-none">
+        <img 
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2560&q=80" 
+            alt="Modern Industrial Architecture" 
+            className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-wallaby-dark via-wallaby-dark/90 to-transparent" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full text-center md:text-left">
+        <div className="mb-4 inline-block">
+            <span className="px-3 py-1 border border-wallaby-accent/50 text-wallaby-accent text-xs tracking-[0.2em] uppercase font-bold bg-wallaby-accent/5 backdrop-blur-sm">
+                Australian Web Solutions
+            </span>
+        </div>
+
+        <h1 className="font-display font-bold text-5xl md:text-8xl lg:text-9xl leading-[0.9] tracking-tighter uppercase mb-8">
+          <span className="block text-white">Dominating</span>
+          <span className="block text-neutral-700 stroke-text" style={{ WebkitTextStroke: '2px #333' }}>The Local</span>
+          <span className="block text-white">Market</span>
+        </h1>
+
+        <p className="max-w-xl text-neutral-400 text-lg md:text-xl leading-relaxed mb-10 md:ml-2">
+            We build high-performance, SEO-optimized digital infrastructure for Australian trade businesses. 
+            Stop competing. Start dominating.
+        </p>
+
+        <div className="flex flex-col md:flex-row gap-4 md:items-center md:ml-2">
+          <a 
+            href="#contact" 
+            className="group relative px-8 py-4 bg-white text-black font-bold uppercase tracking-wider overflow-hidden"
+          >
+            <span className="relative z-10 flex items-center gap-2">
+              Start Project <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </span>
+            <div className="absolute inset-0 bg-wallaby-accent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
+          </a>
+          
+          <a 
+            href="#services" 
+            className="px-8 py-4 border border-white/20 text-white font-bold uppercase tracking-wider hover:bg-white/5 transition-colors text-center"
+          >
+            View Services
+          </a>
+        </div>
+      </div>
+
+      {/* Decorative Grid */}
+      <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-[radial-gradient(#333_1px,transparent_1px)] [background-size:20px_20px] opacity-20 pointer-events-none" />
+    </div>
+  );
+};
+
+export default Hero;
