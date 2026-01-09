@@ -1,6 +1,6 @@
 import React from 'react';
 import Section from './ui/Section';
-import { Mail, Phone, ArrowUpRight } from 'lucide-react';
+import { Mail, Phone, MessageCircle, ArrowUpRight } from 'lucide-react';
 
 const Contact: React.FC = () => {
   return (
@@ -17,7 +17,7 @@ const Contact: React.FC = () => {
         </p>
 
         {/* Contact Methods */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
           {/* Email Card */}
           <a
             href="mailto:wallabywebdesignau@gmail.com"
@@ -53,6 +53,27 @@ const Contact: React.FC = () => {
             </span>
             <span className="mt-4 flex items-center gap-2 text-sm font-medium text-neutral-500 group-hover:text-black transition-colors">
               Give us a ring <ArrowUpRight className="w-4 h-4" />
+            </span>
+          </a>
+
+          {/* WhatsApp Card */}
+          <a
+            href="https://wa.me/61458079666"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col items-center p-8 md:p-12 bg-neutral-100 hover:bg-neutral-200 rounded-lg transition-all duration-300"
+          >
+            <div className="p-4 bg-black rounded-full mb-6 group-hover:bg-wallaby-accent transition-colors">
+              <MessageCircle className="w-8 h-8 text-white group-hover:text-black transition-colors" />
+            </div>
+            <span className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-2">
+              WhatsApp
+            </span>
+            <span className="text-lg md:text-xl font-bold">
+              +61 458 079 666
+            </span>
+            <span className="mt-4 flex items-center gap-2 text-sm font-medium text-neutral-500 group-hover:text-black transition-colors">
+              Message us <ArrowUpRight className="w-4 h-4" />
             </span>
           </a>
         </div>
