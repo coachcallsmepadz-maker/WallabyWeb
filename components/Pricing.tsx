@@ -1,54 +1,53 @@
 import React from 'react';
 import Section from './ui/Section';
-import { Star, PhoneMissed, Globe, Check, ArrowRight } from 'lucide-react';
+import { Star, PhoneMissed, Globe, Check, Phone, MessageCircle } from 'lucide-react';
 
 const pricingPlans = [
   {
     name: "Review Requests",
     icon: <Star className="w-6 h-6" />,
-    tagline: "Build your reputation",
+    tagline: "Get more 5-star reviews",
     setupPrice: 299,
     monthlyPrice: 100,
-    description: "Streamlines the process of gathering social proof from customers.",
+    description: "Automatically asks happy customers for reviews so you don't have to.",
     features: [
-      "Automatic SMS or email triggers",
-      "Sends when job marked complete or payment processed",
-      "Direct link to Google or Facebook review page",
-      "Builds online ranking automatically",
-      "Increases credibility without manual effort"
+      "Texts customers right after the job's done",
+      "One-tap link to leave a Google review",
+      "Builds your online reputation on autopilot",
+      "More reviews = more trust from new customers",
+      "Works while you're on the next job"
     ],
     highlight: false
   },
   {
-    name: "Missed Call Auto-Reply",
+    name: "Missed Call Text-Back",
     icon: <PhoneMissed className="w-6 h-6" />,
-    tagline: "Never lose a lead",
+    tagline: "Stop losing leads",
     setupPrice: 450,
     monthlyPrice: 200,
-    description: "Ensures you don't lose leads when you're unable to answer the phone.",
+    description: "When you can't answer, we text them back instantly so they don't call someone else.",
     features: [
-      "Recognizes unanswered incoming calls",
-      "Instant professional text response",
-      "Custom message (e.g., \"Hi! Sorry we missed you. How can we help?\")",
-      "Starts conversation immediately",
-      "Prevents leads from calling competitors"
+      "Instant text when you miss a call",
+      "Custom message that sounds like you",
+      "Keeps the customer engaged until you're free",
+      "No more losing jobs while you're mid-cut",
+      "Stops leads going to your competitors"
     ],
     highlight: true
   },
   {
-    name: "Website & Google Sync",
+    name: "Website + Google",
     icon: <Globe className="w-6 h-6" />,
-    tagline: "Complete digital presence",
+    tagline: "Get found online",
     setupPrice: 499,
     monthlyPrice: 50,
-    description: "Builds your online storefront and syncs with your business tools.",
+    description: "A proper website that works on every phone, plus we set up your Google Business so locals find you.",
     features: [
-      "Drag-and-drop website builder",
-      "Mobile-responsive design",
-      "Your branding, services & booking links",
-      "Contact forms and chat widgets",
-      "Google Business Profile integration",
-      "Manage reviews from one dashboard"
+      "Looks great on phones, tablets & computers",
+      "Shows up when people search your trade",
+      "Click-to-call and contact forms built in",
+      "We handle all the tech stuff for you",
+      "Linked to your Google Business profile"
     ],
     highlight: false
   }
@@ -58,11 +57,12 @@ const Pricing: React.FC = () => {
   return (
     <Section id="pricing" className="bg-wallaby-dark border-t border-white/5">
       <div className="text-center mb-16 md:mb-24">
+        <span className="text-wallaby-accent text-sm uppercase tracking-[0.3em] mb-4 block">Pricing</span>
         <h2 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tight mb-4">
-          Simple <span className="text-neutral-500">Pricing</span>
+          Simple, <span className="text-neutral-500">Fair Pricing</span>
         </h2>
         <p className="text-neutral-400 max-w-2xl mx-auto">
-          Transparent pricing with no hidden fees. Choose the tools that fit your business.
+          No hidden fees, no lock-in contracts. Just straightforward pricing for tools that actually help your business.
         </p>
       </div>
 
@@ -79,7 +79,7 @@ const Pricing: React.FC = () => {
             {plan.highlight && (
               <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                 <span className="px-4 py-1 bg-wallaby-accent text-black text-xs font-bold uppercase tracking-widest rounded-full">
-                  Popular
+                  Most Popular
                 </span>
               </div>
             )}
@@ -106,7 +106,7 @@ const Pricing: React.FC = () => {
                 <span className="text-neutral-500 text-sm">/month</span>
               </div>
               <p className="text-sm text-neutral-500">
-                + ${plan.setupPrice} setup fee
+                + ${plan.setupPrice} one-time setup
               </p>
             </div>
 
@@ -129,24 +129,46 @@ const Pricing: React.FC = () => {
 
             {/* CTA */}
             <a
-              href="#contact"
+              href="tel:0458079666"
               className={`group flex items-center justify-center gap-2 py-3 px-6 rounded text-sm font-bold uppercase tracking-widest transition-all ${
                 plan.highlight
                   ? 'bg-wallaby-accent text-black hover:bg-wallaby-accent/90'
                   : 'border border-white/20 hover:border-wallaby-accent hover:text-wallaby-accent'
               }`}
             >
-              Get Started
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <Phone className="w-4 h-4" />
+              Get a Quote
             </a>
           </div>
         ))}
       </div>
 
+      {/* Bundle CTA */}
       <div className="mt-16 text-center">
-        <p className="text-neutral-500 text-sm">
-          Need all three? <a href="#contact" className="text-wallaby-accent hover:underline">Contact us</a> for a bundled package deal.
-        </p>
+        <div className="inline-block bg-wallaby-charcoal border border-white/10 rounded-xl p-8 max-w-2xl">
+          <h3 className="text-xl font-bold font-display uppercase mb-2">Want the full package?</h3>
+          <p className="text-neutral-400 mb-6">
+            Get all three tools bundled together and save. Give us a call or message to chat about a deal.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="tel:0458079666"
+              className="flex items-center justify-center gap-2 py-3 px-6 bg-wallaby-accent text-black font-bold uppercase tracking-widest hover:bg-wallaby-accent/90 transition-colors"
+            >
+              <Phone className="w-5 h-5" />
+              Call 0458 079 666
+            </a>
+            <a
+              href="https://wa.me/61458079666"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 py-3 px-6 bg-green-600 text-white font-bold uppercase tracking-widest hover:bg-green-500 transition-colors"
+            >
+              <MessageCircle className="w-5 h-5" />
+              WhatsApp Us
+            </a>
+          </div>
+        </div>
       </div>
     </Section>
   );

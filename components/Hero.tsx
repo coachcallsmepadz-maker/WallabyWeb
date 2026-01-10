@@ -1,53 +1,67 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { Phone, MessageCircle } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-wallaby-dark pt-20">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-wallaby-dark pt-28 md:pt-20">
       {/* Background Graphic Elements */}
       <div className="absolute inset-0 z-0 opacity-75 pointer-events-none">
-        <img 
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2560&q=80" 
-            alt="Modern Industrial Architecture" 
-            className="w-full h-full object-cover"
+        <img
+          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2560&q=80"
+          alt="Modern Industrial Architecture"
+          className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-wallaby-dark via-wallaby-dark/90 to-transparent" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full text-center md:text-left">
         <div className="mb-4 inline-block">
-            <span className="px-3 py-1 border border-wallaby-accent/50 text-wallaby-accent text-xs tracking-[0.2em] uppercase font-bold bg-wallaby-accent/5 backdrop-blur-sm">
-                Australian Web Solutions
-            </span>
+          <span className="px-3 py-1 border border-wallaby-accent/50 text-wallaby-accent text-xs tracking-[0.2em] uppercase font-bold bg-wallaby-accent/5 backdrop-blur-sm">
+            Made for Aussie Tradies
+          </span>
         </div>
 
         <h1 className="font-display font-bold text-5xl md:text-8xl lg:text-9xl leading-[0.9] tracking-tighter uppercase mb-8">
-          <span className="block text-white">Dominating</span>
-          <span className="block text-neutral-700 stroke-text" style={{ WebkitTextStroke: '2px #333' }}>The Local</span>
-          <span className="block text-white">Market</span>
+          <span className="block text-white">Get More</span>
+          <span className="block text-neutral-700 stroke-text" style={{ WebkitTextStroke: '2px #333' }}>Customers</span>
+          <span className="block text-white">Less Hassle</span>
         </h1>
 
         <p className="max-w-xl text-neutral-400 text-lg md:text-xl leading-relaxed mb-10 md:ml-2">
-            We build high-performance, SEO-optimized digital infrastructure for Australian trade businesses. 
-            Stop competing. Start dominating.
+          We build websites that actually bring in jobs. No tech speak, no nonsense — just more customers finding you online while you focus on the tools.
         </p>
 
-        <div className="flex flex-col md:flex-row gap-4 md:items-center md:ml-2">
-          <a 
-            href="#contact" 
-            className="group relative px-8 py-4 bg-white text-black font-bold uppercase tracking-wider overflow-hidden"
+        {/* Big Call Now Section */}
+        <div className="flex flex-col gap-6 md:ml-2">
+          {/* Primary CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a
+              href="tel:0458079666"
+              className="group relative px-8 py-5 bg-wallaby-accent text-black font-bold uppercase tracking-wider overflow-hidden flex items-center justify-center gap-3 text-lg"
+            >
+              <Phone className="w-6 h-6" />
+              <span className="relative z-10">
+                Call Now — 0458 079 666
+              </span>
+            </a>
+
+            <a
+              href="https://wa.me/61458079666"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-5 bg-green-600 hover:bg-green-500 text-white font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-3 text-lg"
+            >
+              <MessageCircle className="w-6 h-6" />
+              WhatsApp Us
+            </a>
+          </div>
+
+          {/* Secondary link */}
+          <a
+            href="#services"
+            className="text-neutral-400 hover:text-wallaby-accent transition-colors text-sm uppercase tracking-widest md:ml-2"
           >
-            <span className="relative z-10 flex items-center gap-2">
-              Start Project <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </span>
-            <div className="absolute inset-0 bg-wallaby-accent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
-          </a>
-          
-          <a 
-            href="#services" 
-            className="px-8 py-4 border border-white/20 text-white font-bold uppercase tracking-wider hover:bg-white/5 transition-colors text-center"
-          >
-            View Services
+            Or scroll down to see what we do ↓
           </a>
         </div>
       </div>

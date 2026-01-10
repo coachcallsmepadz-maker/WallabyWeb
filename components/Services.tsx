@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Section from './ui/Section';
-import { Star, MessageSquare, Phone, PhoneOff, Globe, Search, TrendingUp, Users, Zap } from 'lucide-react';
+import { Star, MessageSquare, Phone, PhoneOff, Globe, Search, TrendingUp, Users, Zap, Check } from 'lucide-react';
 
 // Animated Review Infographic - Stars flowing into reviews
 const ReviewInfographic: React.FC = () => (
@@ -369,30 +369,42 @@ const WebGoogleInfographic: React.FC = () => (
 const services = [
   {
     Infographic: ReviewInfographic,
-    title: "Automated Review Requests",
-    description: "Build a 5-star reputation without lifting a finger. Our systems text or email clients the moment a job is done, turning happy customers into a constant stream of new leads.",
-    highlight: "Reputation Management",
-    stat: "87%",
-    statLabel: "More Reviews",
-    icon: Star
+    title: "Automatic Review Requests",
+    description: "Happy customers become 5-star reviews — without you having to ask. We text them right after the job's done.",
+    highlight: "Build Your Reputation",
+    icon: Star,
+    benefits: [
+      "Stop chasing customers for reviews",
+      "Build trust with new customers who Google you",
+      "More reviews = higher in search results",
+      "Works while you're on the next job"
+    ]
   },
   {
     Infographic: MissedCallInfographic,
-    title: "Missed Call Auto-Reply",
-    description: "Stop losing money to competitors when you're on the tools. If you miss a call, our system instantly sends a professional text to the client, keeping the conversation alive.",
-    highlight: "Lead Retention",
-    stat: "93%",
-    statLabel: "Leads Saved",
-    icon: Phone
+    title: "Missed Call Text-Back",
+    description: "Can't answer the phone mid-job? No worries. We instantly text them so they don't call your competitor.",
+    highlight: "Never Lose a Lead",
+    icon: Phone,
+    benefits: [
+      "Stop losing jobs when you're up a ladder",
+      "Customers get an instant reply, not voicemail",
+      "Keeps the conversation going until you're free",
+      "No more \"sorry, already hired someone else\""
+    ]
   },
   {
     Infographic: WebGoogleInfographic,
-    title: "Webpage & Google Integration",
-    description: "Get a high-performance website that works hand-in-hand with your Google Business Profile. We ensure when locals search for your trade, you're the first one they see.",
-    highlight: "Digital Presence",
-    stat: "#1",
-    statLabel: "Search Ranking",
-    icon: Globe
+    title: "Website + Google Setup",
+    description: "A clean, fast website that looks great on any phone — plus we set up your Google profile so locals find you first.",
+    highlight: "Get Found Online",
+    icon: Globe,
+    benefits: [
+      "Works perfectly on every phone and tablet",
+      "Shows up when people search your trade locally",
+      "Customers can call or message with one tap",
+      "No tech knowledge needed — we handle everything"
+    ]
   }
 ];
 
@@ -406,12 +418,12 @@ const Services: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-wallaby-accent text-sm uppercase tracking-[0.3em] mb-4 block">What We Offer</span>
+          <span className="text-wallaby-accent text-sm uppercase tracking-[0.3em] mb-4 block">What We Do</span>
           <h2 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tight mb-4">
-            Our <span className="text-neutral-500">Expertise</span>
+            Tools That <span className="text-neutral-500">Save You Time</span>
           </h2>
-          <p className="text-neutral-400 max-w-md">
-            Comprehensive digital tools specifically engineered for the modern Australian tradesman.
+          <p className="text-neutral-400 max-w-lg">
+            Simple systems that bring in more work and keep customers happy — so you can focus on what you're good at.
           </p>
         </motion.div>
         <motion.div
@@ -432,7 +444,7 @@ const Services: React.FC = () => {
               </motion.div>
             ))}
           </div>
-          <span className="text-neutral-500 text-sm">3 Core Services</span>
+          <span className="text-neutral-500 text-sm">3 Core Tools</span>
         </motion.div>
       </div>
 
@@ -478,6 +490,16 @@ const Services: React.FC = () => {
                 {service.description}
               </p>
 
+              {/* Benefits list */}
+              <ul className="space-y-2 mb-6">
+                {service.benefits.map((benefit, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm">
+                    <Check className="w-4 h-4 text-wallaby-accent mt-0.5 flex-shrink-0" />
+                    <span className="text-neutral-300">{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+
               {/* Bottom section */}
               <div className="flex items-center justify-between pt-4 border-t border-white/5">
                 <div>
@@ -489,7 +511,6 @@ const Services: React.FC = () => {
                   className="flex items-center gap-2"
                   whileHover={{ x: 4 }}
                 >
-                  <span className="text-neutral-500 text-xs">{service.statLabel}</span>
                   <div className="w-8 h-8 rounded-full bg-wallaby-accent/10 flex items-center justify-center group-hover:bg-wallaby-accent transition-all duration-300">
                     <TrendingUp className="w-4 h-4 text-wallaby-accent group-hover:text-black transition-colors duration-300" />
                   </div>
