@@ -2,67 +2,67 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Section from './ui/Section';
 
-// Trusted clients - real Aussie tradies
+// Trusted clients - real Aussie tradies using reliable image sources
 const trustedClients = [
   {
-    name: "Jake & Bazza",
-    image: "https://content.api.news/v3/images/bin/c556498d331f53c01e1f6ce8ab4a5c01"
+    name: "Jake",
+    image: "https://images.unsplash.com/photo-1540479859555-17af45c78602?w=400&h=500&fit=crop&crop=face"
   },
   {
     name: "Matty",
-    image: "https://programmed.com.au/wp-content/uploads/2020/03/Matt-Whitbread-Kyneton-e1584586069498.jpg"
-  },
-  {
-    name: "Damo",
-    image: "https://www.koimag.com/wp-content/uploads/2023/03/tradies.jpg"
-  },
-  {
-    name: "Robbo",
-    image: "https://www.turningpointnews.com.au/wp-content/uploads/2022/09/Worker-hard-hat.jpg"
-  },
-  {
-    name: "Thommo",
-    image: "https://www.afr.com/content/dam/images/h/1/d/e/l/z/image.imgtype.afrArticleLead.620x350.png/1597795639775.png"
-  },
-  {
-    name: "Macca",
-    image: "https://static1.squarespace.com/static/5d06c5737cd5b00001ce9f16/t/5e9cc6f5e88455481ed68989/1587332856028/IMG_1700.JPG"
-  },
-  {
-    name: "Jonno",
-    image: "https://images.squarespace-cdn.com/content/v1/5fc0ff8f60f00a20999cfa56/1606535170193-6X8EZXK9N8YQ9L4PL1JE/Builder.jpg"
-  },
-  {
-    name: "Fitzy",
-    image: "https://www.reachgroup.com.au/wp-content/uploads/2020/08/iStock-636372466.jpg"
-  },
-  {
-    name: "Jacko",
-    image: "https://www.moneymanager.com.au/wp-content/uploads/2021/07/tradie-1.jpg"
-  },
-  {
-    name: "Carlos",
     image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&h=500&fit=crop&crop=face"
   },
   {
+    name: "Damo",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop&crop=face"
+  },
+  {
+    name: "Robbo",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face"
+  },
+  {
+    name: "Thommo",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face"
+  },
+  {
+    name: "Macca",
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=500&fit=crop&crop=face"
+  },
+  {
+    name: "Jonno",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=500&fit=crop&crop=face"
+  },
+  {
+    name: "Fitzy",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop&crop=face"
+  },
+  {
+    name: "Jacko",
+    image: "https://images.unsplash.com/photo-1463453091185-61582044d556?w=400&h=500&fit=crop&crop=face"
+  },
+  {
+    name: "Carlos",
+    image: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=400&h=500&fit=crop&crop=face"
+  },
+  {
     name: "Richo",
-    image: "https://www.onthejob.co.nz/wp-content/uploads/2019/08/TRC-web.jpg"
+    image: "https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=400&h=500&fit=crop&crop=face"
   },
   {
     name: "Simmo",
-    image: "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/oursite/2023/09/05/1693886095-builder.jpg"
+    image: "https://images.unsplash.com/photo-1548372290-8d01b6c8e78c?w=400&h=500&fit=crop&crop=face"
   },
   {
     name: "Dazza",
-    image: "https://www.uglyfish.com.au/cdn/shop/articles/Worker_with_Ugly_Fish_safety_glasses_512x512.jpg"
+    image: "https://images.unsplash.com/photo-1528892952291-009c663ce843?w=400&h=500&fit=crop&crop=face"
   },
   {
     name: "Nate",
-    image: "https://i.pinimg.com/736x/40/b5/6f/40b56f3125fa93f56f5bf8d29618f993.jpg"
+    image: "https://images.unsplash.com/photo-1587837073080-448bc6a2329b?w=400&h=500&fit=crop&crop=face"
   },
   {
     name: "Rav",
-    image: "https://www.uglyfish.com.au/cdn/shop/articles/Tradie-in-high-vis-shirt-wearing-Ugly-Fish-safety-sunglasses_512x512.jpg"
+    image: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=400&h=500&fit=crop&crop=face"
   }
 ];
 
