@@ -1,83 +1,183 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import Section from './ui/Section';
-import { Quote } from 'lucide-react';
 
-const clients = [
-  "Master Trades Group",
-  "Elite Trades Australia",
-  "RTL Trades",
-  "Master Electricians Australia",
-  "Level Group ANZ",
-  "Level Plumbing Canberra",
-  "Prime Electrical Data Services",
-  "Complete Plumbing Contracting"
-];
-
-const testimonials = [
+// Trusted clients - mix of tradies in different locations
+const trustedClients = [
   {
-    text: "The progress tracker is fantastic. It's motivating to see how much we've improved over time. The app has a great mix of common and challenging leads coming in.",
-    author: "Fatima Khoury",
-    company: "Elite Trades Australia"
+    name: "Dave Wilson",
+    business: "Wilson Plumbing Co",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face",
+    location: "On site"
   },
   {
-    text: "Since launching the new site, our missed calls have converted into text conversations automatically. It's paid for itself ten times over in the first month.",
-    author: "Hassan Ali",
-    company: "Master Trades Group"
+    name: "Mark Thompson",
+    business: "Thompson Electrical",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face",
+    location: "Office"
   },
   {
-    text: "Professional, fast, and they actually understand how a trade business operates. No fluff, just results. Highly recommended.",
-    author: "Nicolas Sánchez",
-    company: "RTL Trades"
+    name: "Chris Bennett",
+    business: "Bennett Building Services",
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=500&fit=crop&crop=face",
+    location: "On site"
   },
   {
-    text: "Went from 8 Google reviews to 67 in three months. Now I'm ranking #1 for 'electrician Blacktown'.",
-    author: "Jason Miller",
-    company: "Miller Electrical Services"
+    name: "Steve O'Brien",
+    business: "O'Brien HVAC Solutions",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=500&fit=crop&crop=face",
+    location: "Office"
+  },
+  {
+    name: "James Mitchell",
+    business: "Mitchell Roofing",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop&crop=face",
+    location: "On site"
+  },
+  {
+    name: "Ryan Cooper",
+    business: "Cooper Carpentry",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop&crop=face",
+    location: "Workshop"
+  },
+  {
+    name: "Tom Harris",
+    business: "Harris Painting",
+    image: "https://images.unsplash.com/photo-1463453091185-61582044d556?w=400&h=500&fit=crop&crop=face",
+    location: "On site"
+  },
+  {
+    name: "Michael Scott",
+    business: "Scott Tiling",
+    image: "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=400&h=500&fit=crop&crop=face",
+    location: "Home"
+  },
+  {
+    name: "Peter Johnson",
+    business: "Johnson Landscaping",
+    image: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=400&h=500&fit=crop&crop=face",
+    location: "On site"
+  },
+  {
+    name: "Daniel Lee",
+    business: "Lee Fencing",
+    image: "https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=400&h=500&fit=crop&crop=face",
+    location: "Workshop"
+  },
+  {
+    name: "Andrew Brown",
+    business: "Brown Concreting",
+    image: "https://images.unsplash.com/photo-1548372290-8d01b6c8e78c?w=400&h=500&fit=crop&crop=face",
+    location: "On site"
+  },
+  {
+    name: "Greg Patterson",
+    business: "Patterson Plumbing",
+    image: "https://images.unsplash.com/photo-1528892952291-009c663ce843?w=400&h=500&fit=crop&crop=face",
+    location: "Office"
   }
 ];
 
 const Testimonials: React.FC = () => {
+  // Duplicate the array for seamless infinite scroll
+  const duplicatedClients = [...trustedClients, ...trustedClients];
+
   return (
     <Section id="testimonials" className="bg-wallaby-dark relative overflow-hidden">
-      {/* Background text decoration */}
-      <div className="absolute top-20 right-0 text-[20rem] font-display font-bold text-white/5 -z-10 leading-none select-none pointer-events-none opacity-20">
-        TRUST
+      {/* Header */}
+      <div className="mb-12 md:mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="text-wallaby-accent text-sm uppercase tracking-[0.3em] mb-4 block">Our Clients</span>
+          <h2 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tight mb-6">
+            Trusted by <span className="text-wallaby-accent">Aussie Tradies</span>
+          </h2>
+          <p className="text-neutral-400 max-w-2xl text-lg">
+            We're proud to work with hard-working tradies across Australia. From sparky to chippy, plumber to painter — these legends trust us to help grow their business.
+          </p>
+        </motion.div>
       </div>
 
-      <div className="mb-20">
-        <h2 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tight mb-8">
-          Trusted <span className="text-wallaby-accent">Clients</span>
-        </h2>
-        
-        {/* Client List / Logos (Text based for now as per prompt instructions to list them) */}
-        <div className="flex flex-wrap gap-4 md:gap-8 mb-16 opacity-60">
-          {clients.map((client, idx) => (
-            <span key={idx} className="text-sm md:text-base font-medium uppercase tracking-wider border-b border-transparent hover:border-wallaby-accent hover:text-white hover:opacity-100 transition-all cursor-default pb-1">
-              {client}
-            </span>
-          ))}
+      {/* Scrolling Photos Container */}
+      <div className="relative -mx-6 md:-mx-12 lg:-mx-20">
+        {/* Gradient overlays for fade effect */}
+        <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-wallaby-dark to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-wallaby-dark to-transparent z-10 pointer-events-none" />
+
+        {/* Scrolling track */}
+        <div className="overflow-hidden">
+          <motion.div
+            className="flex gap-6"
+            animate={{
+              x: [0, -50 * trustedClients.length * 16], // Move by total width of original items
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 40,
+                ease: "linear",
+              },
+            }}
+          >
+            {duplicatedClients.map((client, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-48 md:w-56 group"
+              >
+                {/* Photo card */}
+                <div className="relative overflow-hidden rounded-xl mb-3 aspect-[4/5]">
+                  <img
+                    src={client.image}
+                    alt={client.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  {/* Subtle gradient overlay at bottom for text readability if needed */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                </div>
+
+                {/* Name and business */}
+                <div className="px-1">
+                  <h3 className="font-bold text-white text-base">{client.name}</h3>
+                  <p className="text-wallaby-accent text-sm">{client.business}</p>
+                </div>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {testimonials.map((t, i) => (
-          <div key={i} className="p-8 md:p-10 bg-neutral-800 rounded-2xl relative">
-            <Quote className="absolute top-8 left-8 text-wallaby-accent/20 w-12 h-12" />
-            <p className="relative z-10 text-neutral-300 mb-8 leading-relaxed pt-6">
-              "{t.text}"
-            </p>
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-neutral-600 flex items-center justify-center font-bold text-sm">
-                {t.author.charAt(0)}
-              </div>
-              <div>
-                <div className="font-bold text-white text-sm">{t.author}</div>
-                <div className="text-xs text-wallaby-accent uppercase tracking-wider">{t.company}</div>
-              </div>
-            </div>
+      {/* Stats or trust indicators */}
+      <motion.div
+        className="mt-16 pt-12 border-t border-white/10"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div>
+            <div className="text-3xl md:text-4xl font-display font-bold text-wallaby-accent mb-2">150+</div>
+            <div className="text-neutral-400 text-sm uppercase tracking-wider">Happy Tradies</div>
           </div>
-        ))}
-      </div>
+          <div>
+            <div className="text-3xl md:text-4xl font-display font-bold text-wallaby-accent mb-2">12</div>
+            <div className="text-neutral-400 text-sm uppercase tracking-wider">Different Trades</div>
+          </div>
+          <div>
+            <div className="text-3xl md:text-4xl font-display font-bold text-wallaby-accent mb-2">4.9</div>
+            <div className="text-neutral-400 text-sm uppercase tracking-wider">Avg Rating</div>
+          </div>
+          <div>
+            <div className="text-3xl md:text-4xl font-display font-bold text-wallaby-accent mb-2">100%</div>
+            <div className="text-neutral-400 text-sm uppercase tracking-wider">Aussie Owned</div>
+          </div>
+        </div>
+      </motion.div>
     </Section>
   );
 };
