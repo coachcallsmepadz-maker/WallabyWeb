@@ -2,85 +2,73 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Section from './ui/Section';
 
-// Trusted clients - mix of tradies in different locations
+// Trusted clients - real Aussie tradies
 const trustedClients = [
   {
-    name: "Dave Wilson",
-    business: "Wilson Plumbing Co",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face",
-    location: "On site"
+    name: "Jake & Bazza",
+    image: "https://content.api.news/v3/images/bin/c556498d331f53c01e1f6ce8ab4a5c01"
   },
   {
-    name: "Mark Thompson",
-    business: "Thompson Electrical",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face",
-    location: "Office"
+    name: "Matty",
+    image: "https://programmed.com.au/wp-content/uploads/2020/03/Matt-Whitbread-Kyneton-e1584586069498.jpg"
   },
   {
-    name: "Chris Bennett",
-    business: "Bennett Building Services",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=500&fit=crop&crop=face",
-    location: "On site"
+    name: "Damo",
+    image: "https://www.koimag.com/wp-content/uploads/2023/03/tradies.jpg"
   },
   {
-    name: "Steve O'Brien",
-    business: "O'Brien HVAC Solutions",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=500&fit=crop&crop=face",
-    location: "Office"
+    name: "Robbo",
+    image: "https://www.turningpointnews.com.au/wp-content/uploads/2022/09/Worker-hard-hat.jpg"
   },
   {
-    name: "James Mitchell",
-    business: "Mitchell Roofing",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop&crop=face",
-    location: "On site"
+    name: "Thommo",
+    image: "https://www.afr.com/content/dam/images/h/1/d/e/l/z/image.imgtype.afrArticleLead.620x350.png/1597795639775.png"
   },
   {
-    name: "Ryan Cooper",
-    business: "Cooper Carpentry",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop&crop=face",
-    location: "Workshop"
+    name: "Macca",
+    image: "https://static1.squarespace.com/static/5d06c5737cd5b00001ce9f16/t/5e9cc6f5e88455481ed68989/1587332856028/IMG_1700.JPG"
   },
   {
-    name: "Tom Harris",
-    business: "Harris Painting",
-    image: "https://images.unsplash.com/photo-1463453091185-61582044d556?w=400&h=500&fit=crop&crop=face",
-    location: "On site"
+    name: "Jonno",
+    image: "https://images.squarespace-cdn.com/content/v1/5fc0ff8f60f00a20999cfa56/1606535170193-6X8EZXK9N8YQ9L4PL1JE/Builder.jpg"
   },
   {
-    name: "Michael Scott",
-    business: "Scott Tiling",
-    image: "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=400&h=500&fit=crop&crop=face",
-    location: "Home"
+    name: "Fitzy",
+    image: "https://www.reachgroup.com.au/wp-content/uploads/2020/08/iStock-636372466.jpg"
   },
   {
-    name: "Peter Johnson",
-    business: "Johnson Landscaping",
-    image: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=400&h=500&fit=crop&crop=face",
-    location: "On site"
+    name: "Jacko",
+    image: "https://www.moneymanager.com.au/wp-content/uploads/2021/07/tradie-1.jpg"
   },
   {
-    name: "Daniel Lee",
-    business: "Lee Fencing",
-    image: "https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=400&h=500&fit=crop&crop=face",
-    location: "Workshop"
+    name: "Carlos",
+    image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&h=500&fit=crop&crop=face"
   },
   {
-    name: "Andrew Brown",
-    business: "Brown Concreting",
-    image: "https://images.unsplash.com/photo-1548372290-8d01b6c8e78c?w=400&h=500&fit=crop&crop=face",
-    location: "On site"
+    name: "Richo",
+    image: "https://www.onthejob.co.nz/wp-content/uploads/2019/08/TRC-web.jpg"
   },
   {
-    name: "Greg Patterson",
-    business: "Patterson Plumbing",
-    image: "https://images.unsplash.com/photo-1528892952291-009c663ce843?w=400&h=500&fit=crop&crop=face",
-    location: "Office"
+    name: "Simmo",
+    image: "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/oursite/2023/09/05/1693886095-builder.jpg"
+  },
+  {
+    name: "Dazza",
+    image: "https://www.uglyfish.com.au/cdn/shop/articles/Worker_with_Ugly_Fish_safety_glasses_512x512.jpg"
+  },
+  {
+    name: "Nate",
+    image: "https://i.pinimg.com/736x/40/b5/6f/40b56f3125fa93f56f5bf8d29618f993.jpg"
+  },
+  {
+    name: "Rav",
+    image: "https://www.uglyfish.com.au/cdn/shop/articles/Tradie-in-high-vis-shirt-wearing-Ugly-Fish-safety-sunglasses_512x512.jpg"
   }
 ];
 
 const Testimonials: React.FC = () => {
-  // Duplicate the array for seamless infinite scroll
-  const duplicatedClients = [...trustedClients, ...trustedClients];
+  // Duplicate the array multiple times for seamless infinite scroll
+  const duplicatedClients = [...trustedClients, ...trustedClients, ...trustedClients];
 
   return (
     <Section id="testimonials" className="bg-wallaby-dark relative overflow-hidden">
@@ -105,49 +93,41 @@ const Testimonials: React.FC = () => {
       {/* Scrolling Photos Container */}
       <div className="relative -mx-6 md:-mx-12 lg:-mx-20">
         {/* Gradient overlays for fade effect */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-wallaby-dark to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-wallaby-dark to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-wallaby-dark to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-wallaby-dark to-transparent z-10 pointer-events-none" />
 
-        {/* Scrolling track */}
+        {/* Scrolling track - CSS animation for seamless loop */}
         <div className="overflow-hidden">
-          <motion.div
-            className="flex gap-6"
-            animate={{
-              x: [0, -50 * trustedClients.length * 16], // Move by total width of original items
-            }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 40,
-                ease: "linear",
-              },
+          <div
+            className="flex gap-5 animate-scroll"
+            style={{
+              width: 'max-content',
             }}
           >
             {duplicatedClients.map((client, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-48 md:w-56 group"
+                className="flex-shrink-0 w-44 md:w-52 group"
               >
                 {/* Photo card */}
-                <div className="relative overflow-hidden rounded-xl mb-3 aspect-[4/5]">
+                <div className="relative overflow-hidden rounded-xl mb-3 aspect-[4/5] bg-neutral-800">
                   <img
                     src={client.image}
                     alt={client.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
                   />
-                  {/* Subtle gradient overlay at bottom for text readability if needed */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                  {/* Subtle gradient overlay at bottom */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 </div>
 
-                {/* Name and business */}
+                {/* Name only */}
                 <div className="px-1">
                   <h3 className="font-bold text-white text-base">{client.name}</h3>
-                  <p className="text-wallaby-accent text-sm">{client.business}</p>
                 </div>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
 
@@ -178,6 +158,24 @@ const Testimonials: React.FC = () => {
           </div>
         </div>
       </motion.div>
+
+      {/* CSS for infinite scroll animation */}
+      <style>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-33.333%);
+          }
+        }
+        .animate-scroll {
+          animation: scroll 45s linear infinite;
+        }
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </Section>
   );
 };
