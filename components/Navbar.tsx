@@ -52,10 +52,11 @@ const Navbar: React.FC = () => {
           <div className="relative">
             <button
               onClick={() => setShowCallOptions(!showCallOptions)}
-              className="px-6 py-2.5 bg-wallaby-accent text-black font-bold uppercase tracking-wider text-sm hover:bg-wallaby-accent/90 transition-all flex items-center gap-2"
+              className="group relative px-6 py-2.5 bg-gradient-to-r from-wallaby-accent via-yellow-400 to-orange-500 text-black font-bold uppercase tracking-wider text-sm transition-all duration-300 flex items-center gap-2 rounded-full shadow-lg shadow-wallaby-accent/30 hover:shadow-wallaby-accent/50 hover:scale-105 hover:-translate-y-0.5 overflow-hidden"
             >
-              <Phone className="w-4 h-4" />
-              Call Now
+              <span className="absolute inset-0 bg-gradient-to-r from-orange-500 via-yellow-400 to-wallaby-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+              <Phone className="w-4 h-4 relative z-10 group-hover:animate-pulse" />
+              <span className="relative z-10">Call Now</span>
             </button>
 
             {/* Dropdown */}
