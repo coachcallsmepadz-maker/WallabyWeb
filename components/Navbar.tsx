@@ -29,17 +29,17 @@ const Navbar: React.FC = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <a href="#" className="flex items-center">
-          <span className="text-xl md:text-2xl font-extrabold text-white tracking-tight">WallabyWeb Design</span>
+        <a href="#" className="flex items-center mr-auto">
+          <span className="text-xl md:text-2xl font-extrabold text-white tracking-tight">Wallaby Web Design</span>
         </a>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center space-x-6">
+        <div className="hidden lg:flex items-center space-x-8">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-sm uppercase tracking-widest hover:text-wallaby-accent transition-colors font-medium"
+              className="text-base uppercase tracking-widest hover:text-wallaby-accent transition-colors font-medium"
             >
               {link.name}
             </a>
