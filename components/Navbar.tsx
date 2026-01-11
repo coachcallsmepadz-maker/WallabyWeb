@@ -28,19 +28,9 @@ const Navbar: React.FC = () => {
         scrolled ? 'bg-black/90 backdrop-blur-md py-3 border-b border-white/10' : 'bg-transparent py-4'
       }`}
     >
-      {/* Top bar with phone number */}
-      <div className={`transition-all duration-300 ${scrolled ? 'hidden' : 'block'}`}>
-        <div className="max-w-7xl mx-auto px-6 pb-3 border-b border-white/10 flex justify-end items-center text-sm">
-          <a href="tel:0458079666" className="flex items-center gap-2 text-wallaby-accent hover:text-white transition-colors font-semibold">
-            <Phone className="w-4 h-4" />
-            0458 079 666
-          </a>
-        </div>
-      </div>
-
-      <div className={`max-w-7xl mx-auto px-6 flex justify-between items-center ${scrolled ? '' : 'pt-3'}`}>
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <a href="#" className="flex items-center">
-          <img src="/logo.png" alt="Wallaby Web" className="h-10 md:h-12 w-auto" />
+          <span className="text-xl md:text-2xl font-extrabold text-white tracking-tight">WallabyWeb Design</span>
         </a>
 
         {/* Desktop Nav */}
