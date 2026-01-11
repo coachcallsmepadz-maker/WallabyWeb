@@ -22,8 +22,7 @@ const Hero: React.FC = () => {
         </div>
 
         <h1 className="font-display font-bold text-5xl md:text-8xl lg:text-9xl leading-[0.9] tracking-tighter uppercase mb-8">
-          <span className="block text-white">More</span>
-          <span className="block text-neutral-700 stroke-text" style={{ WebkitTextStroke: '2px #333' }}>Customers</span>
+          <span className="block text-white">More Customers</span>
           <span className="block text-white">Less Hassle</span>
         </h1>
 
@@ -41,7 +40,7 @@ const Hero: React.FC = () => {
             >
               <Phone className="w-6 h-6" />
               <span className="relative z-10">
-                Call Now — 0458 079 666
+                Call Now
               </span>
             </a>
 

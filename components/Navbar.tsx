@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
     { name: 'Process', href: '#process' },
     { name: 'Examples', href: '#examples' },
     { name: 'Pricing', href: '#pricing' },
-    { name: 'Reviews', href: '#testimonials' },
+    { name: 'Our Clients', href: '#testimonials' },
   ];
 
   return (
@@ -39,8 +39,8 @@ const Navbar: React.FC = () => {
       </div>
 
       <div className={`max-w-7xl mx-auto px-6 flex justify-between items-center ${scrolled ? '' : 'pt-3'}`}>
-        <a href="#" className="text-2xl font-display font-bold tracking-tighter uppercase">
-          Wallaby<span className="text-wallaby-accent">.</span>
+        <a href="#" className="flex items-center">
+          <img src="/logo.png" alt="Wallaby Web" className="h-10 md:h-12 w-auto" />
         </a>
 
         {/* Desktop Nav */}
