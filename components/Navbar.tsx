@@ -48,15 +48,6 @@ const Navbar: React.FC = () => {
 
         {/* Call Now Button with dropdown */}
         <div className="hidden md:flex items-center gap-3">
-          {/* Phone number - visible when scrolled */}
-          <a
-            href="tel:0458079666"
-            className={`flex items-center gap-2 text-wallaby-accent font-bold transition-all ${scrolled ? 'opacity-100' : 'opacity-0 lg:opacity-0'}`}
-          >
-            <Phone className="w-4 h-4" />
-            <span className="hidden xl:inline">0458 079 666</span>
-          </a>
-
           {/* Call Now Button */}
           <div className="relative">
             <button
