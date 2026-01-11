@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
         </div>
 
         <h1 className="font-display font-bold text-5xl md:text-8xl lg:text-9xl leading-[0.9] tracking-tighter uppercase mb-8">
-          <span className="block text-white">Get More</span>
+          <span className="block text-white">More</span>
           <span className="block text-neutral-700 stroke-text" style={{ WebkitTextStroke: '2px #333' }}>Customers</span>
           <span className="block text-white">Less Hassle</span>
         </h1>

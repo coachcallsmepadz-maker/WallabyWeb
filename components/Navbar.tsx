@@ -30,8 +30,7 @@ const Navbar: React.FC = () => {
     >
       {/* Top bar with phone number */}
       <div className={`transition-all duration-300 ${scrolled ? 'hidden' : 'block'}`}>
-        <div className="max-w-7xl mx-auto px-6 pb-3 border-b border-white/10 flex justify-between items-center text-sm">
-          <span className="text-neutral-400">Digital solutions for Aussie tradies</span>
+        <div className="max-w-7xl mx-auto px-6 pb-3 border-b border-white/10 flex justify-end items-center text-sm">
           <a href="tel:0458079666" className="flex items-center gap-2 text-wallaby-accent hover:text-white transition-colors font-semibold">
             <Phone className="w-4 h-4" />
             0458 079 666
