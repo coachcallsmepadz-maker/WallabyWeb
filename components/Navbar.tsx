@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Call Now Button with dropdown */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-3 ml-auto pl-8">
           {/* Call Now Button */}
           <div className="relative">
             <button
