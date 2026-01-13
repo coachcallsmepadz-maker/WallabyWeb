@@ -2,68 +2,26 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Section from './ui/Section';
 
-// Trusted clients - real Aussie tradies using reliable image sources
+// Trusted clients - real Aussie tradies
 const trustedClients = [
-  {
-    name: "Jake",
-    image: "https://images.unsplash.com/photo-1540479859555-17af45c78602?w=400&h=500&fit=crop&crop=face"
-  },
-  {
-    name: "Matty",
-    image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&h=500&fit=crop&crop=face"
-  },
-  {
-    name: "Damo",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop&crop=face"
-  },
-  {
-    name: "Robbo",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face"
-  },
-  {
-    name: "Thommo",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face"
-  },
-  {
-    name: "Macca",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=500&fit=crop&crop=face"
-  },
-  {
-    name: "Jonno",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=500&fit=crop&crop=face"
-  },
-  {
-    name: "Fitzy",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop&crop=face"
-  },
-  {
-    name: "Jacko",
-    image: "https://images.unsplash.com/photo-1463453091185-61582044d556?w=400&h=500&fit=crop&crop=face"
-  },
-  {
-    name: "Carlos",
-    image: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=400&h=500&fit=crop&crop=face"
-  },
-  {
-    name: "Richo",
-    image: "https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=400&h=500&fit=crop&crop=face"
-  },
-  {
-    name: "Simmo",
-    image: "https://images.unsplash.com/photo-1548372290-8d01b6c8e78c?w=400&h=500&fit=crop&crop=face"
-  },
-  {
-    name: "Dazza",
-    image: "https://images.unsplash.com/photo-1528892952291-009c663ce843?w=400&h=500&fit=crop&crop=face"
-  },
-  {
-    name: "Nate",
-    image: "https://images.unsplash.com/photo-1587837073080-448bc6a2329b?w=400&h=500&fit=crop&crop=face"
-  },
-  {
-    name: "Rav",
-    image: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=400&h=500&fit=crop&crop=face"
-  }
+  { name: "Jake", image: "/clients/tradie_1.avif" },
+  { name: "Matty", image: "/clients/tradie_2.jpeg" },
+  { name: "Damo", image: "/clients/tradie_3.avif" },
+  { name: "Robbo", image: "/clients/tradie_4.avif" },
+  { name: "Thommo", image: "/clients/tradie_5.webp" },
+  { name: "Macca", image: "/clients/tradie_6.jpeg" },
+  { name: "Jonno", image: "/clients/tradie_7.avif" },
+  { name: "Fitzy", image: "/clients/tradie_8.jpg" },
+  { name: "Jacko", image: "/clients/tradie_9.webp" },
+  { name: "Carlos", image: "/clients/tradie_10.webp" },
+  { name: "Richo", image: "/clients/tradie_11.jpeg" },
+  { name: "Simmo", image: "/clients/tradie_12.jpeg" },
+  { name: "Dazza", image: "/clients/tradie_13.jpeg" },
+  { name: "Nate", image: "/clients/tradie_14.jpeg" },
+  { name: "Rav", image: "/clients/tradie_15.jpeg" },
+  { name: "Bazza", image: "/clients/tradie_16.webp" },
+  { name: "Watto", image: "/clients/tradie_17.jpg" },
+  { name: "Muzza", image: "/clients/tradie_18.jpg" }
 ];
 
 const Testimonials: React.FC = () => {
