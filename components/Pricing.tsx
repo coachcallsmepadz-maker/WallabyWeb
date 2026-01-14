@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Globe, Star, Phone, Check, ArrowRight, Sparkles } from 'lucide-react';
+import { Globe, Star, Phone, Check, ArrowRight } from 'lucide-react';
 
 const plans = [
   {
@@ -20,20 +20,20 @@ const plans = [
     color: 'from-blue-500 to-cyan-500',
   },
   {
-    name: 'Full Package',
-    icon: Sparkles,
-    tagline: 'The complete business upgrade',
-    setup: 999,
-    monthly: 299,
+    name: 'Missed Call Text-Back',
+    icon: Phone,
+    tagline: 'Never lose a lead again',
+    setup: 450,
+    monthly: 200,
     features: [
-      'Everything in Website + Google',
-      'Reviews collect on autopilot',
-      'Never miss a lead again',
-      'Priority support when you need it',
-      'Monthly reports showing your growth',
+      'Instant text when you miss a call',
+      'Custom messages in your voice',
+      'Keep leads warm while you work',
+      'Works with your existing number',
+      'Track every opportunity',
     ],
     popular: true,
-    color: 'from-accent to-orange-400',
+    color: 'from-green-500 to-emerald-500',
   },
   {
     name: 'Review System',
@@ -176,36 +176,6 @@ const Pricing: React.FC = () => {
           ))}
         </div>
 
-        {/* Add-on section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-16"
-        >
-          <div className="relative overflow-hidden rounded-3xl glass p-8 md:p-10">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
-                  <Phone className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-display font-semibold text-white mb-1">
-                    Missed Call Text-Back
-                  </h3>
-                  <p className="text-neutral-400 text-sm">Stop losing leads while you're on the tools — $200/mo + $450 setup</p>
-                </div>
-              </div>
-              <a
-                href="tel:0458079666"
-                className="inline-flex items-center gap-2 px-6 py-3 glass hover:bg-white/10 text-white font-medium rounded-full transition-all"
-              >
-                <Phone className="w-4 h-4" />
-                Learn more
-              </a>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
