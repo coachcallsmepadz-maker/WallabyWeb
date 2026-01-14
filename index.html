@@ -8,22 +8,29 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              display: ['Oswald', 'sans-serif'],
+              sans: ['Space Grotesk', 'Inter', 'sans-serif'],
+              display: ['Playfair Display', 'serif'],
+              mono: ['JetBrains Mono', 'monospace'],
             },
             colors: {
               wallaby: {
-                dark: '#111111',
-                charcoal: '#1A1A1A',
-                concrete: '#8c8c8c',
-                accent: '#D4af37', // Muted gold/industrial yellow
-                white: '#F5F5F5',
+                dark: '#0A0A0A',
+                charcoal: '#141414',
+                slate: '#1E1E1E',
+                concrete: '#6B7280',
+                muted: '#9CA3AF',
+                accent: '#F59E0B', // Warm amber
+                'accent-light': '#FBBF24',
+                'accent-dark': '#D97706',
+                copper: '#B87333',
+                gold: '#D4AF37',
+                white: '#FAFAFA',
               }
             }
           }

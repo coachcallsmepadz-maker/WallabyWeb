@@ -47,19 +47,7 @@ const Examples: React.FC = () => {
   const prevSlide = () => setCurrentIndex((prev) => (prev - 1 + examples.length) % examples.length);
 
   return (
-    <section id="examples" className="relative py-24 md:py-32 bg-primary overflow-hidden">
-      {/* Background image */}
-      <div
-        className="absolute inset-0 z-0 opacity-30"
-        style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      />
-      {/* Dark overlay for better contrast */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-primary via-primary/90 to-primary" />
-
+    <section id="examples" className="relative py-24 md:py-32 overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Laptop Showcase */}
         <motion.div
