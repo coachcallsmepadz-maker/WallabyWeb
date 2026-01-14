@@ -1,126 +1,143 @@
-import React from 'react';
-import Section from './ui/Section';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 
-const LaptopMockup: React.FC<{ image: string; label: string; className?: string; rotation?: string }> = ({
-  image,
-  label,
-  className = '',
-  rotation = ''
-}) => {
-  return (
-    <div className={`flex flex-col items-center ${className}`}>
-      {/* Label above laptop */}
-      <span className="text-xs font-medium text-neutral-400 uppercase tracking-wider mb-3">
-        {label}
-      </span>
-      {/* Laptop frame */}
-      <div className={`relative ${rotation}`}>
-        {/* Screen */}
-        <div className="relative w-[180px] h-[115px] md:w-[220px] md:h-[140px] lg:w-[260px] lg:h-[165px] bg-neutral-800 rounded-t-lg p-[4px] md:p-[6px] border-[3px] border-neutral-700">
-          {/* Screen bezel */}
-          <div className="relative w-full h-full bg-black rounded-sm overflow-hidden">
-            {/* Camera dot */}
-            <div className="absolute top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-neutral-700 rounded-full z-10"></div>
-            {/* Screen content */}
-            <img
-              src={image}
-              alt={`${label} website example`}
-              className="w-full h-full object-cover object-top"
-            />
-          </div>
+const examples = [
+  { image: '/examples/plumber.png', label: 'Plumbing' },
+  { image: '/examples/electrician.png', label: 'Electrical' },
+  { image: '/examples/carpenter.png', label: 'Carpentry' },
+  { image: '/examples/roofing.png', label: 'Roofing' },
+  { image: '/examples/builder.png', label: 'Building' },
+  { image: '/examples/architect.png', label: 'Architecture' },
+];
+
+const LaptopMockup: React.FC<{ image: string }> = ({ image }) => (
+  <div className="relative">
+    {/* Laptop frame */}
+    <div className="relative">
+      {/* Screen */}
+      <div className="relative w-[300px] md:w-[450px] lg:w-[550px] aspect-[16/10] bg-neutral-900 rounded-t-xl p-2 border-[3px] border-neutral-700">
+        {/* Screen bezel */}
+        <div className="relative w-full h-full bg-black rounded-lg overflow-hidden">
+          {/* Camera dot */}
+          <div className="absolute top-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-neutral-700 rounded-full z-10" />
+          {/* Screen content */}
+          <img
+            src={image}
+            alt="Website example"
+            className="w-full h-full object-cover object-top"
+          />
         </div>
-        {/* Laptop base/keyboard */}
-        <div className="relative w-[200px] md:w-[244px] lg:w-[288px] h-[8px] md:h-[10px] bg-gradient-to-b from-neutral-600 to-neutral-700 rounded-b-lg mx-auto">
-          {/* Notch/indent */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 md:w-16 h-[3px] bg-neutral-500 rounded-b-md"></div>
-        </div>
-        {/* Bottom lip */}
-        <div className="relative w-[210px] md:w-[256px] lg:w-[300px] h-[4px] bg-neutral-700 rounded-b-xl mx-auto shadow-lg"></div>
+      </div>
+      {/* Laptop base/hinge */}
+      <div className="relative w-[320px] md:w-[490px] lg:w-[590px] h-4 bg-gradient-to-b from-neutral-600 to-neutral-700 rounded-b-xl mx-auto">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-neutral-500 rounded-b" />
       </div>
     </div>
-  );
-};
+
+    {/* Subtle glow under laptop */}
+    <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-2/3 h-16 bg-accent/10 rounded-full blur-3xl" />
+  </div>
+);
 
 const Examples: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const next = () => setCurrentIndex((prev) => (prev + 1) % examples.length);
+  const prevSlide = () => setCurrentIndex((prev) => (prev - 1 + examples.length) % examples.length);
+
   return (
-    <Section id="examples" className="bg-wallaby-charcoal border-t border-white/5 overflow-hidden">
-      {/* Main container with laptop layout */}
-      <div className="relative min-h-[800px] md:min-h-[900px] flex items-center justify-center">
+    <section id="examples" className="relative py-24 md:py-32 bg-primary overflow-hidden">
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        {/* Laptop Showcase */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="relative"
+        >
+          {/* Main display */}
+          <div className="flex items-center justify-center">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.3 }}
+              >
+                <LaptopMockup image={examples[currentIndex].image} />
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-        {/* Left side laptops */}
-        <div className="absolute left-0 md:left-4 lg:left-12 top-0 bottom-0 flex flex-col justify-center gap-6 md:gap-8">
-          <LaptopMockup
-            image="/examples/plumber.png"
-            label="Plumbing"
-            className="transform -translate-x-8 md:translate-x-0"
-            rotation="rotate-[-6deg]"
-          />
-          <LaptopMockup
-            image="/examples/electrician.png"
-            label="Electrical"
-            className="transform translate-x-4 md:translate-x-8"
-            rotation="rotate-[4deg]"
-          />
-          <LaptopMockup
-            image="/examples/carpenter.png"
-            label="Carpentry"
-            className="transform -translate-x-4 md:translate-x-2"
-            rotation="rotate-[-3deg]"
-          />
-        </div>
+          {/* Navigation with trade label */}
+          <div className="flex items-center justify-center gap-3 mt-12">
+            <button
+              onClick={prevSlide}
+              className="w-10 h-10 rounded-full bg-accent hover:bg-accent/80 flex items-center justify-center transition-colors"
+              aria-label="Previous"
+            >
+              <ChevronLeft className="w-5 h-5 text-primary" />
+            </button>
 
-        {/* Center content - Branding */}
-        <div className="relative z-10 text-center px-4 max-w-md">
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold uppercase tracking-tight text-wallaby-white">
-            Wallaby
-          </h2>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold uppercase tracking-tight text-wallaby-accent">
-            Web Design
-          </h2>
-          <p className="mt-4 text-neutral-400 text-sm md:text-base max-w-sm mx-auto">
-            Professional websites built for Australian tradies. Stand out online and get more customers.
-          </p>
+            {/* Trade label pill */}
+            <div className="px-6 py-2.5 bg-neutral-800 rounded-full min-w-[140px] text-center">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentIndex}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="font-medium text-white text-sm"
+                >
+                  {examples[currentIndex].label}
+                </motion.span>
+              </AnimatePresence>
+            </div>
+
+            <button
+              onClick={next}
+              className="w-10 h-10 rounded-full bg-accent hover:bg-accent/80 flex items-center justify-center transition-colors"
+              aria-label="Next"
+            >
+              <ChevronRight className="w-5 h-5 text-primary" />
+            </button>
+          </div>
+
+          {/* Dots indicator */}
+          <div className="flex items-center justify-center gap-2 mt-6">
+            {examples.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentIndex(i)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  i === currentIndex ? 'bg-accent' : 'bg-neutral-700 hover:bg-neutral-500'
+                }`}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12 text-center"
+        >
+          <p className="text-neutral-500 text-sm mb-3">Don't see your trade? We work with all industries.</p>
           <a
             href="#contact"
-            className="inline-block mt-6 px-6 py-3 bg-wallaby-accent text-black font-semibold rounded-lg hover:bg-wallaby-accent/90 transition-colors"
+            className="inline-flex items-center gap-2 text-accent hover:gap-3 transition-all font-medium text-sm"
           >
-            Get Started
+            Get in touch
+            <ArrowRight className="w-4 h-4" />
           </a>
-        </div>
-
-        {/* Right side laptops */}
-        <div className="absolute right-0 md:right-4 lg:right-12 top-0 bottom-0 flex flex-col justify-center gap-6 md:gap-8">
-          <LaptopMockup
-            image="/examples/roofing.png"
-            label="Roofing"
-            className="transform translate-x-8 md:translate-x-0"
-            rotation="rotate-[6deg]"
-          />
-          <LaptopMockup
-            image="/examples/builder.png"
-            label="Building"
-            className="transform -translate-x-4 md:-translate-x-8"
-            rotation="rotate-[-4deg]"
-          />
-          <LaptopMockup
-            image="/examples/architect.png"
-            label="Architecture"
-            className="transform translate-x-4 md:-translate-x-2"
-            rotation="rotate-[3deg]"
-          />
-        </div>
+        </motion.div>
       </div>
-
-      {/* Bottom text */}
-      <div className="mt-8 text-center">
-        <p className="text-neutral-500 text-sm uppercase tracking-widest mb-2">
-          Don't see your trade?
-        </p>
-        <p className="text-neutral-400">
-          We work with all trades across Australia. <a href="#contact" className="text-wallaby-accent hover:underline">Get in touch</a> to discuss your specific needs.
-        </p>
-      </div>
-    </Section>
+    </section>
   );
 };
 
