@@ -1,278 +1,342 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Section from './ui/Section';
-import { Wrench, Code, Zap } from 'lucide-react';
+import { Wrench, Code, Zap, Briefcase, Rocket, ShieldCheck } from 'lucide-react';
 
 const AboutUs: React.FC = () => {
   return (
     <>
       {/* About Us Section */}
-      <Section id="about" className="bg-wallaby-dark relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 z-0">
-          {/* Subtle grid pattern */}
-          <div className="absolute inset-0 opacity-[0.02]"
-               style={{
-                 backgroundImage: 'linear-gradient(rgba(212, 175, 55, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(212, 175, 55, 0.5) 1px, transparent 1px)',
-                 backgroundSize: '80px 80px'
-               }}>
+      <Section id="about" className="bg-wallaby-dark relative overflow-hidden min-h-screen flex items-center">
+        {/* Advanced Background Layer */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          {/* Construction Site Background with Parallax effect (simulated via position) */}
+          <div
+            className="absolute inset-0 opacity-10 bg-cover bg-center bg-fixed"
+            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=2000')" }}
+          />
+
+          {/* Blueprint Grid Overlay */}
+          <div className="absolute inset-0 opacity-[0.05]"
+            style={{
+              backgroundImage: 'linear-gradient(rgba(245, 158, 11, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(245, 158, 11, 0.4) 1px, transparent 1px)',
+              backgroundSize: '40px 40px'
+            }}>
           </div>
-          {/* Warm glow */}
-          <div className="absolute top-1/2 left-1/4 w-[600px] h-[600px] bg-wallaby-accent/5 rounded-full blur-[150px] -translate-y-1/2" />
+
+          {/* Animated Laser Lines */}
+          {[...Array(4)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute h-px w-full bg-gradient-to-r from-transparent via-wallaby-accent/20 to-transparent"
+              style={{ top: `${20 + i * 20}%` }}
+              animate={{
+                x: ['-100%', '100%'],
+                opacity: [0, 1, 0]
+              }}
+              transition={{
+                duration: 5 + i,
+                repeat: Infinity,
+                ease: "linear",
+                delay: i * 2
+              }}
+            />
+          ))}
+
+          {/* Large Orbital Glows */}
+          <div className="absolute -top-1/4 -right-1/4 w-[800px] h-[800px] bg-wallaby-accent/5 rounded-full blur-[180px] animate-pulse-slow" />
+          <div className="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[150px] animate-pulse-slow" />
         </div>
 
-        <div className="relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Content Side */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <span className="text-wallaby-accent text-sm uppercase tracking-[0.3em] mb-4 block font-bold">About Us</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold uppercase tracking-tight mb-8">
-              From the <span className="text-wallaby-accent">Tools</span> to the <span className="text-wallaby-accent">Code</span>
-            </h2>
+        <div className="relative z-10 w-full">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Content Side */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="flex items-center gap-4 mb-6"
+              >
+                <div className="h-px w-12 bg-wallaby-accent" />
+                <span className="text-wallaby-accent text-sm uppercase tracking-[0.4em] font-bold">The Origin Story</span>
+              </motion.div>
 
-            <div className="space-y-6 text-neutral-300 text-lg leading-relaxed">
-              <p>
-                For five years, I was on the tools as a chippie. I loved the work, but I watched firsthand as a great business—my own employer—went under. We did the best work in the area, but the jobs stopped coming because we were invisible online.
-              </p>
-              <p>
-                Meanwhile, other crews with half the skill were booked out months in advance simply because they had a better digital presence.
-              </p>
-              <p className="text-white font-medium">
-                That was my "aha" moment. I realized that in today's world, being the best at your craft isn't enough if nobody can find you.
-              </p>
-            </div>
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold uppercase tracking-tight mb-8 leading-[0.9]">
+                From the <span className="text-wallaby-accent inline-block">Tools</span> <br />
+                to the <span className="text-white neon-glow-blue italic">Code</span>
+              </h2>
 
-            {/* The Pivot Section */}
-            <div className="mt-10 pt-8 border-t border-neutral-800">
-              <h3 className="text-2xl font-display font-bold uppercase tracking-wider mb-4 text-white">
-                The Pivot
-              </h3>
-              <p className="text-neutral-300 text-lg leading-relaxed mb-4">
-                I hung up the tool belt and spent the next few years obsessed with a different kind of construction: <span className="text-wallaby-accent font-semibold">Web Design</span>. I learned exactly what it takes to get a trade business noticed, how to attract high-quality leads instead of "tyre-kickers," and how to turn a website into a business's hardest-working employee.
-              </p>
-              <p className="text-neutral-400 leading-relaxed">
-                I fell in love with the design process because it's not that different from carpentry. You need a solid foundation, a clean frame, and a finish that makes people stop and look.
-              </p>
-            </div>
-          </motion.div>
+              <div className="space-y-6 text-neutral-400 text-lg leading-relaxed max-w-xl">
+                <p className="border-l-2 border-wallaby-accent/30 pl-6 italic text-neutral-300">
+                  "For five years, I was on the tools as a chippie. I loved the work, but I watched firsthand as a great business—my own employer—went under. We did the best work in the area, but the jobs stopped coming because we were invisible online."
+                </p>
+                <p>
+                  That was my <span className="text-white font-bold">"aha" moment</span>. I realized that in today's world, being the best at your craft isn't enough if nobody can find you.
+                </p>
+              </div>
 
-          {/* Visual Side - Trade/Tech Fusion Design */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="relative"
-          >
-            <div className="relative aspect-square max-w-lg mx-auto">
-              {/* Outer glow ring */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-wallaby-accent/20 via-transparent to-wallaby-accent/10 blur-xl" />
+              {/* The Pivot Timeline */}
+              <div className="mt-12 space-y-8 relative">
+                <div className="absolute left-4 top-2 bottom-2 w-px bg-neutral-800" />
 
-              {/* Main circular container */}
-              <div className="relative w-full h-full rounded-full border border-neutral-800 bg-gradient-to-br from-neutral-900 to-neutral-950 overflow-hidden">
-                {/* Inner grid pattern */}
-                <div className="absolute inset-0 opacity-10"
-                     style={{
-                       backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(212, 175, 55, 0.3) 40px, rgba(212, 175, 55, 0.3) 41px), repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(212, 175, 55, 0.3) 40px, rgba(212, 175, 55, 0.3) 41px)',
-                     }}>
+                {[
+                  {
+                    year: "2015-2020",
+                    title: "On the Tools",
+                    desc: "Qualified carpenter building high-end residential frames and finishes.",
+                    icon: <Wrench className="w-4 h-4" />
+                  },
+                  {
+                    year: "2020",
+                    title: "The Transition",
+                    desc: "Hung up the belt to obsess over digital construction and lead generation.",
+                    icon: <Rocket className="w-4 h-4" />
+                  },
+                  {
+                    year: "Today",
+                    title: "Wallaby Web",
+                    desc: "Bridging the gap between trades and the digital world.",
+                    icon: <ShieldCheck className="w-4 h-4" />
+                  }
+                ].map((item, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.2 }}
+                    className="relative pl-12"
+                  >
+                    <div className="absolute left-0 w-8 h-8 rounded-full bg-neutral-900 border border-neutral-700 flex items-center justify-center z-10 text-wallaby-accent">
+                      {item.icon}
+                    </div>
+                    <div className="text-xs font-bold text-wallaby-accent uppercase tracking-widest mb-1">{item.year}</div>
+                    <h4 className="text-xl font-bold text-white mb-2">{item.title}</h4>
+                    <p className="text-neutral-500 text-sm leading-relaxed">{item.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Visual Side - Digital Construction HUD */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className="relative py-20 perspective-1000"
+            >
+              <div className="relative aspect-square max-w-lg mx-auto h-[500px]">
+                {/* Background Data Stream */}
+                <div className="absolute inset-0 z-0 opacity-20 overflow-hidden rounded-3xl border border-white/5">
+                  <div className="absolute top-0 left-4 bottom-0 w-px bg-wallaby-accent/20" />
+                  <div className="absolute top-0 right-4 bottom-0 w-px bg-wallaby-accent/20" />
+                  <div className="animate-data-flow flex flex-col gap-4 text-[10px] font-mono text-wallaby-accent/40 whitespace-nowrap px-8">
+                    {Array.from({ length: 40 }).map((_, i) => (
+                      <div key={i}>0XF92A {Math.random().toString(16).substr(2, 8)} BUILD_STATUS: OK // FRAME_SYNC: {Math.floor(Math.random() * 100)}%</div>
+                    ))}
+                  </div>
                 </div>
 
-                {/* Animated orbiting elements */}
+                {/* Pane 1: The Plan (Top Left) */}
                 <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-8"
+                  whileHover={{ translateZ: 50, rotateX: -5, rotateY: 10 }}
+                  className="absolute top-0 left-0 w-64 h-48 glass-pane rounded-2xl z-20 p-6 flex flex-col justify-between"
+                  style={{ transform: 'rotateY(25deg) rotateX(10deg)' }}
                 >
-                  {/* Tool icons orbiting */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-wallaby-accent to-wallaby-accent/70 flex items-center justify-center shadow-lg shadow-wallaby-accent/30">
-                      <Wrench className="w-7 h-7 text-neutral-950" />
-                    </div>
+                  <div className="flex items-center gap-2 text-wallaby-accent mb-2">
+                    <div className="w-2 h-2 rounded-full bg-wallaby-accent animate-pulse" />
+                    <span className="text-[10px] uppercase tracking-widest font-bold">Project_Blueprint</span>
                   </div>
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
-                      <Code className="w-7 h-7 text-white" />
-                    </div>
+                  <div className="space-y-2">
+                    <div className="h-1 w-1/2 bg-white/10 rounded" />
+                    <div className="h-1 w-3/4 bg-white/10 rounded" />
+                    <div className="h-1 w-2/3 bg-white/10 rounded" />
                   </div>
-                  <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center shadow-lg shadow-orange-500/30">
-                      <Zap className="w-7 h-7 text-white" />
+                  <div className="flex justify-between items-end">
+                    <Wrench className="w-8 h-8 text-white/20" />
+                    <div className="text-right">
+                      <div className="text-xl font-display font-bold text-white">PLAN</div>
+                      <div className="text-[8px] text-neutral-500">VERSION 2.4.0</div>
                     </div>
                   </div>
                 </motion.div>
 
-                {/* Counter-rotating inner ring */}
+                {/* Pane 2: The Build (Bottom Right) */}
                 <motion.div
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-20 border border-dashed border-wallaby-accent/30 rounded-full"
-                />
-
-                {/* Center element */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative">
-                    <motion.div
-                      animate={{ scale: [1, 1.1, 1] }}
-                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                      className="w-32 h-32 rounded-full bg-gradient-to-br from-wallaby-accent/20 to-transparent flex items-center justify-center border border-wallaby-accent/40"
-                    >
-                      <div className="text-center">
-                        <div className="text-4xl font-display font-bold text-wallaby-accent">WW</div>
-                        <div className="text-xs text-neutral-400 uppercase tracking-widest mt-1">Est. 2020</div>
-                      </div>
-                    </motion.div>
+                  whileHover={{ translateZ: 80, rotateX: 5, rotateY: -10 }}
+                  className="absolute bottom-0 right-0 w-72 h-56 glass-pane rounded-2xl z-30 p-8 flex flex-col justify-between"
+                  style={{ transform: 'rotateY(-20deg) rotateX(-5deg)' }}
+                >
+                  <div className="flex items-center gap-2 text-blue-500 mb-2">
+                    <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+                    <span className="text-[10px] uppercase tracking-widest font-bold">Active_Compilation</span>
                   </div>
-                </div>
+                  <div className="relative flex-1 flex items-center justify-center">
+                    <Code className="w-16 h-16 text-blue-500/20" />
+                    <motion.div
+                      animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.3, 0.1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="absolute w-24 h-24 rounded-full border border-blue-500/30"
+                    />
+                  </div>
+                  <div className="flex justify-between items-end">
+                    <div className="text-left">
+                      <div className="text-2xl font-display font-bold text-white">BUILD</div>
+                      <div className="text-[8px] text-neutral-500 text-blue-500/70">SYNCING_ASSETS_89%</div>
+                    </div>
+                    <Zap className="w-8 h-8 text-blue-500" />
+                  </div>
+                </motion.div>
 
-                {/* Floating particles */}
-                {[...Array(8)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    animate={{
-                      y: [0, -20, 0],
-                      opacity: [0.3, 0.8, 0.3]
-                    }}
-                    transition={{
-                      duration: 3 + i * 0.5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: i * 0.3
-                    }}
-                    className="absolute w-2 h-2 rounded-full bg-wallaby-accent/60"
-                    style={{
-                      left: `${20 + (i * 10)}%`,
-                      top: `${30 + (i % 3) * 20}%`
-                    }}
-                  />
-                ))}
+                {/* Pane 3: The Logo (Center Floating) */}
+                <motion.div
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 glass-pane rounded-full z-40 flex items-center justify-center border-wallaby-accent/40 shadow-[0_0_50px_rgba(245,158,11,0.1)]"
+                >
+                  <div className="text-center">
+                    <div className="text-4xl font-display font-bold text-white mb-1">WW</div>
+                    <div className="text-[8px] text-wallaby-accent uppercase tracking-[0.3em] font-bold">Deliver</div>
+                  </div>
+                </motion.div>
 
-                {/* Connection lines */}
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 400">
+                {/* Structural Connector Lines (SVG) */}
+                <svg className="absolute inset-0 w-full h-full z-10 pointer-events-none opacity-30" viewBox="0 0 500 500">
                   <motion.path
-                    d="M200 100 L200 200 L300 200"
-                    stroke="rgba(212, 175, 55, 0.2)"
+                    d="M100 100 L250 250 L400 400"
+                    stroke="rgba(245, 158, 11, 0.5)"
                     strokeWidth="1"
                     fill="none"
                     initial={{ pathLength: 0 }}
                     whileInView={{ pathLength: 1 }}
-                    viewport={{ once: true }}
+                    transition={{ duration: 2 }}
+                  />
+                  <motion.path
+                    d="M400 100 L250 250 L100 400"
+                    stroke="rgba(59, 130, 246, 0.5)"
+                    strokeWidth="1"
+                    fill="none"
+                    initial={{ pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
                     transition={{ duration: 2, delay: 0.5 }}
                   />
-                  <motion.path
-                    d="M100 200 L200 200 L200 300"
-                    stroke="rgba(212, 175, 55, 0.2)"
-                    strokeWidth="1"
-                    fill="none"
-                    initial={{ pathLength: 0 }}
-                    whileInView={{ pathLength: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 2, delay: 0.8 }}
-                  />
                 </svg>
+
+                {/* Corner Markers */}
+                <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-wallaby-accent/40" />
+                <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-wallaby-accent/40" />
+                <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-wallaby-accent/40" />
+                <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-wallaby-accent/40" />
+
+                {/* Floating Stat Badges - Moved inside the HUD relative container */}
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1.2 }}
+                  className="absolute -top-6 -right-12 z-30 px-6 py-4 glass-premium rounded-2xl border border-white/5"
+                >
+                  <div className="text-2xl font-display font-bold text-white mb-1">5+</div>
+                  <div className="text-[10px] text-neutral-500 uppercase tracking-widest leading-none">Years Trade<br />Experience</div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1.4 }}
+                  className="absolute -bottom-6 -left-12 z-30 px-6 py-4 glass-premium rounded-2xl border border-white/5"
+                >
+                  <div className="text-2xl font-display font-bold text-wallaby-accent mb-1">150+</div>
+                  <div className="text-[10px] text-neutral-500 uppercase tracking-widest leading-none">High-End<br />Sites Built</div>
+                </motion.div>
               </div>
-
-              {/* Floating tool/tech badges around the circle */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-                className="absolute -top-4 -right-4 px-4 py-2 bg-neutral-900 border border-neutral-700 rounded-full text-sm text-neutral-300"
-              >
-                <span className="text-wallaby-accent font-bold">5+</span> Years Trade Experience
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.7 }}
-                className="absolute -bottom-4 -left-4 px-4 py-2 bg-neutral-900 border border-neutral-700 rounded-full text-sm text-neutral-300"
-              >
-                <span className="text-wallaby-accent font-bold">150+</span> Sites Built
-              </motion.div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </Section>
 
       {/* Why Wallaby Web Section */}
-      <Section className="bg-neutral-950 relative overflow-hidden py-16 md:py-24">
-        {/* Subtle background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-wallaby-dark via-neutral-950 to-neutral-950" />
+      <Section className="bg-wallaby-dark relative overflow-hidden py-24 md:py-32">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.03)_0%,transparent_100%)]" />
 
-        <div className="relative z-10">
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <span className="text-wallaby-accent text-sm uppercase tracking-[0.3em] mb-4 block font-bold">The Difference</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold uppercase tracking-tight">
+        <div className="relative z-10 px-4">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <motion.span
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              className="text-wallaby-accent text-sm uppercase tracking-[0.5em] font-bold mb-4 block"
+            >
+              The DNA of our Code
+            </motion.span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white uppercase tracking-tight mb-6">
               Why <span className="text-wallaby-accent">Wallaby Web</span>?
             </h2>
-            <p className="text-neutral-400 max-w-2xl mx-auto mt-4 text-lg">
-              At Wallaby Web, we don't do "fluff." We build digital foundations for tradies and small businesses who need results, not just a pretty picture.
+            <p className="text-neutral-400 text-lg leading-relaxed">
+              We don't do "fluff." We build digital foundations for tradies and small businesses who need results, not just a pretty picture. It's construction for the web.
             </p>
-          </motion.div>
+          </div>
 
-          {/* Why Points */}
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto perspective-1000">
             {[
               {
-                title: "I Know the Industry",
-                description: "I know what a \"lead\" is worth to you. I've been in the trade, I understand the hustle, and I know what actually moves the needle for your business.",
-                icon: <Wrench className="w-6 h-6" />
+                title: "Industry Veteran",
+                desc: "I know what a lead is worth. I've been in the trade, I understand the hustle, and I know what actually moves the needle for your business.",
+                icon: <Briefcase className="w-8 h-8" />
               },
               {
-                title: "No Tech-Speak",
-                description: "I talk to you like a person, not an IT manual. Plain English, straight answers, and clear communication from start to finish.",
-                icon: <span className="text-2xl">🗣️</span>
+                title: "Zero Jargon",
+                desc: "I talk to you like a person, not an IT manual. Plain English, straight answers, and clear communication from start to finish.",
+                icon: <div className="text-3xl font-display">No BS</div>
               },
               {
-                title: "Built to Last",
-                description: "Just like a well-built house, our sites are fast, sturdy, and designed to grow with you. No cheap shortcuts, no duct-tape solutions.",
-                icon: <Zap className="w-6 h-6" />
+                title: "Overbuilt Quality",
+                desc: "Just like a well-built house, our sites are fast, sturdy, and designed to grow. No cheap shortcuts, no duct-tape solutions.",
+                icon: <Zap className="w-8 h-8" />
               }
-            ].map((item, index) => (
+            ].map((card, idx) => (
               <motion.div
-                key={index}
+                key={idx}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.15 }}
-                className="group relative"
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                whileHover={{ y: -10, rotateX: 5, rotateY: 5 }}
+                className="group h-full"
               >
-                <div className="relative p-6 md:p-8 rounded-2xl border border-neutral-800 bg-neutral-900/50 hover:border-wallaby-accent/40 transition-all duration-500 h-full">
-                  {/* Hover glow */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-wallaby-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="h-full glass-premium p-8 md:p-10 rounded-[2rem] border border-white/5 group-hover:border-wallaby-accent/30 transition-all duration-500 relative flex flex-col justify-between overflow-hidden">
+                  {/* Decorative background number */}
+                  <div className="absolute -bottom-4 -right-4 text-9xl font-display font-bold text-white/[0.02] pointer-events-none">
+                    0{idx + 1}
+                  </div>
 
-                  <div className="relative">
-                    {/* Icon */}
-                    <div className="w-12 h-12 rounded-xl bg-wallaby-accent/10 border border-wallaby-accent/30 flex items-center justify-center text-wallaby-accent mb-4 group-hover:bg-wallaby-accent/20 transition-colors duration-300">
-                      {item.icon}
+                  <div>
+                    <div className="w-16 h-16 rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-wallaby-accent mb-8 shadow-inner">
+                      {card.icon}
                     </div>
-
-                    {/* Content */}
-                    <h3 className="text-xl font-display font-bold uppercase tracking-wider text-white mb-3">
-                      {item.title}
+                    <h3 className="text-2xl font-display font-bold text-white uppercase tracking-wide mb-4">
+                      {card.title}
                     </h3>
-                    <p className="text-neutral-400 leading-relaxed">
-                      {item.description}
+                    <p className="text-neutral-400 leading-relaxed group-hover:text-neutral-300 transition-colors">
+                      {card.desc}
                     </p>
+                  </div>
+
+                  <div className="mt-8 pt-8 border-t border-white/5 flex items-center text-xs uppercase tracking-widest text-wallaby-accent font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="mr-2">Tradie Born</span>
+                    <span className="text-neutral-700">|</span>
+                    <span className="ml-2">Tech Driven</span>
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
-      </Section>
+      </Section >
     </>
   );
 };

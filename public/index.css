@@ -5,25 +5,25 @@
 
 /* Base styles for sections with background images */
 .section-bg {
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* Dark overlay for readability - applied via ::before pseudo-element */
 .section-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
 }
 
 /* Ensure content stays above overlay */
-.section-bg > * {
-  position: relative;
-  z-index: 1;
+.section-bg>* {
+    position: relative;
+    z-index: 1;
 }
 
 /* ============================================
@@ -31,17 +31,15 @@
    Background: Dark brushed steel/metal texture
    ============================================ */
 #services {
-  background-image: 
-    linear-gradient(
-      to bottom,
-      rgba(17, 17, 17, 0.92) 0%,
-      rgba(17, 17, 17, 0.85) 50%,
-      rgba(17, 17, 17, 0.95) 100%
-    ),
-    url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=2000&q=80');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+    background-image:
+        linear-gradient(to bottom,
+            rgba(17, 17, 17, 0.92) 0%,
+            rgba(17, 17, 17, 0.85) 50%,
+            rgba(17, 17, 17, 0.95) 100%),
+        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 /* ============================================
@@ -49,17 +47,15 @@
    Background: Warm-lit wooden workbench
    ============================================ */
 #pricing {
-  background-image: 
-    linear-gradient(
-      to bottom,
-      rgba(26, 26, 26, 0.93) 0%,
-      rgba(26, 26, 26, 0.88) 50%,
-      rgba(26, 26, 26, 0.95) 100%
-    ),
-    url('https://images.unsplash.com/photo-1541123603104-512919d6a96c?auto=format&fit=crop&w=2000&q=80');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+    background-image:
+        linear-gradient(to bottom,
+            rgba(26, 26, 26, 0.93) 0%,
+            rgba(26, 26, 26, 0.88) 50%,
+            rgba(26, 26, 26, 0.95) 100%),
+        url('https://images.unsplash.com/photo-1541123603104-512919d6a96c?auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 /* ============================================
@@ -67,17 +63,15 @@
    Background: Dark architectural blueprints
    ============================================ */
 #process {
-  background-image: 
-    linear-gradient(
-      165deg,
-      rgba(10, 10, 10, 0.94) 0%,
-      rgba(10, 10, 10, 0.88) 40%,
-      rgba(17, 17, 17, 0.92) 100%
-    ),
-    url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2000&q=80');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+    background-image:
+        linear-gradient(165deg,
+            rgba(10, 10, 10, 0.94) 0%,
+            rgba(10, 10, 10, 0.88) 40%,
+            rgba(17, 17, 17, 0.92) 100%),
+        url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 /* ============================================
@@ -87,17 +81,15 @@
    these rules provide additional depth)
    ============================================ */
 #examples {
-  background-image: 
-    linear-gradient(
-      to bottom,
-      rgba(17, 17, 17, 0.95) 0%,
-      rgba(17, 17, 17, 0.85) 50%,
-      rgba(17, 17, 17, 0.95) 100%
-    ),
-    url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+    background-image:
+        linear-gradient(to bottom,
+            rgba(17, 17, 17, 0.95) 0%,
+            rgba(17, 17, 17, 0.85) 50%,
+            rgba(17, 17, 17, 0.95) 100%),
+        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 /* ============================================
@@ -105,17 +97,15 @@
    Background: Warm ambient construction site
    ============================================ */
 #testimonials {
-  background-image: 
-    linear-gradient(
-      to bottom right,
-      rgba(17, 17, 17, 0.94) 0%,
-      rgba(17, 17, 17, 0.88) 50%,
-      rgba(17, 17, 17, 0.95) 100%
-    ),
-    url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=2000&q=80');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+    background-image:
+        linear-gradient(to bottom right,
+            rgba(17, 17, 17, 0.94) 0%,
+            rgba(17, 17, 17, 0.88) 50%,
+            rgba(17, 17, 17, 0.95) 100%),
+        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 /* ============================================
@@ -123,17 +113,15 @@
    Background: Warm wood grain close-up
    ============================================ */
 #about {
-  background-image: 
-    linear-gradient(
-      135deg,
-      rgba(17, 17, 17, 0.95) 0%,
-      rgba(17, 17, 17, 0.85) 50%,
-      rgba(26, 26, 26, 0.92) 100%
-    ),
-    url('https://images.unsplash.com/photo-1558618047-f4b511a881e8?auto=format&fit=crop&w=2000&q=80');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+    background-image:
+        linear-gradient(135deg,
+            rgba(17, 17, 17, 0.95) 0%,
+            rgba(17, 17, 17, 0.85) 50%,
+            rgba(26, 26, 26, 0.92) 100%),
+        url('https://images.unsplash.com/photo-1558618047-f4b511a881e8?auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 /* ============================================
@@ -142,16 +130,14 @@
    (Keeps the light theme but adds subtle texture)
    ============================================ */
 #contact {
-  background-image: 
-    linear-gradient(
-      to bottom,
-      rgba(245, 245, 245, 0.96) 0%,
-      rgba(245, 245, 245, 0.92) 50%,
-      rgba(245, 245, 245, 0.98) 100%
-    ),
-    url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=2000&q=80');
-  background-size: cover;
-  background-position: center;
+    background-image:
+        linear-gradient(to bottom,
+            rgba(245, 245, 245, 0.96) 0%,
+            rgba(245, 245, 245, 0.92) 50%,
+            rgba(245, 245, 245, 0.98) 100%),
+        url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
 }
 
 /* ============================================
@@ -160,39 +146,135 @@
 
 /* Glass morphism effect */
 .glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Accent text gradient */
 .text-gradient {
-  background: linear-gradient(135deg, #D4af37 0%, #f5d87a 50%, #D4af37 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+    background: linear-gradient(135deg, #D4af37 0%, #f5d87a 50%, #D4af37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Premium Glass Effect */
+.glass-premium {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 4px 24px -1px rgba(0, 0, 0, 0.2),
+        inset 0 0 20px 0 rgba(255, 255, 255, 0.02);
+}
+
+/* Neon Glow Effect */
+.neon-glow {
+    text-shadow: 0 0 10px rgba(245, 158, 11, 0.5), 0 0 20px rgba(245, 158, 11, 0.3);
+}
+
+.neon-glow-blue {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Custom Animations */
+@keyframes scan {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+.animate-scan {
+    animation: scan 3s linear infinite;
+}
+
+@keyframes pulse-slow {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
+}
+
+/* Data Stream Animation */
+@keyframes data-flow {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.animate-data-flow {
+    animation: data-flow 20s linear infinite;
+}
+
+/* 3D Glass Pane Styling */
+.glass-pane {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+        -10px 10px 30px rgba(0, 0, 0, 0.5),
+        inset 0 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+.glass-pane::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, transparent 50%, rgba(255, 255, 255, 0.02) 100%);
+    pointer-events: none;
+}
+
+/* 3D Tilt Container */
+.perspective-1000 {
+    perspective: 1000px;
 }
 
 /* Primary color utilities */
 .bg-primary {
-  background-color: #111111;
+    background-color: #111111;
 }
 
 .bg-secondary {
-  background-color: #1A1A1A;
+    background-color: #1A1A1A;
 }
 
 .text-light {
-  color: #F5F5F5;
+    color: #F5F5F5;
 }
 
 .bg-accent {
-  background-color: #D4af37;
+    background-color: #D4af37;
 }
 
 .text-accent {
-  color: #D4af37;
+    color: #D4af37;
 }
 
 /* ============================================
@@ -200,31 +282,30 @@
    Disable fixed backgrounds on mobile for performance
    ============================================ */
 @media (max-width: 768px) {
-  #services,
-  #pricing,
-  #process,
-  #examples,
-  #testimonials,
-  #about {
-    background-attachment: scroll;
-  }
+
+    #services,
+    #pricing,
+    #process,
+    #examples,
+    #testimonials,
+    #about {
+        background-attachment: scroll;
+    }
 }
 
 /* ============================================
    SMOOTH SCROLLING
    ============================================ */
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 /* ============================================
    FOOTER BACKGROUND (Optional enhancement)
    ============================================ */
 footer {
-  background-image: 
-    linear-gradient(
-      to top,
-      rgba(17, 17, 17, 1) 0%,
-      rgba(17, 17, 17, 0.98) 100%
-    );
+    background-image:
+        linear-gradient(to top,
+            rgba(17, 17, 17, 1) 0%,
+            rgba(17, 17, 17, 0.98) 100%);
 }
