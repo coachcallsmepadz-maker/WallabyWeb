@@ -108,8 +108,8 @@ const Pricing: React.FC = () => {
             >
               {/* Popular badge */}
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-                  <div className="px-4 py-1.5 bg-accent text-white text-xs font-bold rounded-full">
+                <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-10">
+                  <div className="px-5 py-2 bg-accent text-white text-sm font-bold rounded-full">
                     Most Popular
                   </div>
                 </div>
