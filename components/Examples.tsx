@@ -48,6 +48,18 @@ const Examples: React.FC = () => {
 
   return (
     <section id="examples" className="relative py-24 md:py-32 bg-primary overflow-hidden">
+      {/* Background image */}
+      <div
+        className="absolute inset-0 z-0 opacity-30"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
+      {/* Dark overlay for better contrast */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-primary via-primary/90 to-primary" />
+
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Laptop Showcase */}
         <motion.div
@@ -75,21 +87,21 @@ const Examples: React.FC = () => {
           <div className="flex items-center justify-center gap-3 mt-12">
             <button
               onClick={prevSlide}
-              className="w-10 h-10 rounded-full bg-accent hover:bg-accent/80 flex items-center justify-center transition-colors"
+              className="w-11 h-11 rounded-full bg-gradient-to-br from-accent to-orange-600 hover:from-orange-500 hover:to-accent shadow-lg shadow-accent/30 flex items-center justify-center transition-all hover:scale-105"
               aria-label="Previous"
             >
               <ChevronLeft className="w-5 h-5 text-primary" />
             </button>
 
             {/* Trade label pill */}
-            <div className="px-6 py-2.5 bg-neutral-800 rounded-full min-w-[140px] text-center">
+            <div className="px-8 py-3 bg-neutral-800/80 backdrop-blur-sm border border-neutral-700 rounded-full min-w-[160px] text-center">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={currentIndex}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="font-medium text-white text-sm"
+                  className="font-medium text-white"
                 >
                   {examples[currentIndex].label}
                 </motion.span>
@@ -98,7 +110,7 @@ const Examples: React.FC = () => {
 
             <button
               onClick={next}
-              className="w-10 h-10 rounded-full bg-accent hover:bg-accent/80 flex items-center justify-center transition-colors"
+              className="w-11 h-11 rounded-full bg-gradient-to-br from-accent to-orange-600 hover:from-orange-500 hover:to-accent shadow-lg shadow-accent/30 flex items-center justify-center transition-all hover:scale-105"
               aria-label="Next"
             >
               <ChevronRight className="w-5 h-5 text-primary" />
@@ -125,12 +137,12 @@ const Examples: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-12 text-center"
+          className="mt-14 text-center"
         >
-          <p className="text-neutral-500 text-sm mb-3">Don't see your trade? We work with all industries.</p>
+          <p className="text-neutral-400 text-sm mb-4">Don't see your trade? We work with all industries.</p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 text-accent hover:gap-3 transition-all font-medium text-sm"
+            className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-accent to-orange-600 hover:from-orange-500 hover:to-accent text-primary font-semibold rounded-full shadow-lg shadow-accent/20 transition-all hover:scale-105 hover:gap-3"
           >
             Get in touch
             <ArrowRight className="w-4 h-4" />
