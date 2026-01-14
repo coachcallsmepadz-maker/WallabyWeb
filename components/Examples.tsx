@@ -1,96 +1,121 @@
 import React from 'react';
 import Section from './ui/Section';
-import { Zap, Droplets, Hammer, Paintbrush, Home, ArrowUpRight } from 'lucide-react';
 
-const trades = [
-  {
-    icon: <Zap className="w-6 h-6" />,
-    name: "Electricians",
-    color: "from-amber-500 to-orange-600",
-    description: "Spark up your online presence with a site that attracts residential and commercial clients."
-  },
-  {
-    icon: <Droplets className="w-6 h-6" />,
-    name: "Plumbers",
-    color: "from-blue-500 to-cyan-600",
-    description: "Stop leaking leads. Get a website that captures emergency calls day and night."
-  },
-  {
-    icon: <Hammer className="w-6 h-6" />,
-    name: "Carpenters",
-    color: "from-amber-700 to-yellow-600",
-    description: "Showcase your craftsmanship with a portfolio that builds trust and bookings."
-  },
-  {
-    icon: <Paintbrush className="w-6 h-6" />,
-    name: "Painters",
-    color: "from-purple-500 to-pink-600",
-    description: "Paint a professional picture online with before/after galleries that convert."
-  },
-  {
-    icon: <Home className="w-6 h-6" />,
-    name: "Bricklayers",
-    color: "from-red-600 to-orange-700",
-    description: "Solid foundations start online. Show off your masonry with a site that stands out."
-  },
-  {
-    icon: <Home className="w-6 h-6" />,
-    name: "Roofers",
-    color: "from-slate-600 to-zinc-700",
-    description: "Rise above the competition with a website that puts you at the top of local searches."
-  }
+const phoneExamples = [
+  { image: '/examples/plumber.png', label: 'Plumbing', position: 'left-top' },
+  { image: '/examples/electrician.png', label: 'Electrical', position: 'left-middle' },
+  { image: '/examples/carpenter.png', label: 'Carpentry', position: 'left-bottom' },
+  { image: '/examples/roofing.png', label: 'Roofing', position: 'right-top' },
+  { image: '/examples/builder.png', label: 'Building', position: 'right-middle' },
+  { image: '/examples/architect.png', label: 'Architecture', position: 'right-bottom' },
 ];
+
+const PhoneMockup: React.FC<{ image: string; label: string; className?: string; rotation?: string }> = ({
+  image,
+  label,
+  className = '',
+  rotation = ''
+}) => {
+  return (
+    <div className={`flex flex-col items-center ${className}`}>
+      {/* Label above phone */}
+      <span className="text-xs font-medium text-neutral-400 uppercase tracking-wider mb-2">
+        {label}
+      </span>
+      {/* Phone frame */}
+      <div className={`relative ${rotation}`}>
+        {/* Phone outer bezel */}
+        <div className="relative w-[140px] h-[280px] md:w-[160px] md:h-[320px] bg-black rounded-[28px] p-[6px] shadow-2xl shadow-black/50">
+          {/* Phone inner bezel */}
+          <div className="relative w-full h-full bg-neutral-900 rounded-[22px] overflow-hidden">
+            {/* Notch */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-5 bg-black rounded-b-xl z-10"></div>
+            {/* Screen content */}
+            <img
+              src={image}
+              alt={`${label} website example`}
+              className="w-full h-full object-cover object-top"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Examples: React.FC = () => {
   return (
-    <Section id="examples" className="bg-wallaby-charcoal border-t border-white/5">
-      <div className="text-center mb-16 md:mb-24">
-        <h2 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tight mb-4">
-          Website <span className="text-neutral-500">Examples</span>
-        </h2>
-        <p className="text-neutral-400 max-w-2xl mx-auto">
-          Every trade is different. We build tailored websites that speak directly to your customers and showcase what makes your business unique.
-        </p>
-      </div>
+    <Section id="examples" className="bg-wallaby-charcoal border-t border-white/5 overflow-hidden">
+      {/* Main container with phone layout */}
+      <div className="relative min-h-[700px] md:min-h-[800px] flex items-center justify-center">
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {trades.map((trade, index) => (
-          <div
-            key={index}
-            className="group relative overflow-hidden rounded-lg cursor-pointer"
+        {/* Left side phones */}
+        <div className="absolute left-0 md:left-8 lg:left-16 top-0 bottom-0 flex flex-col justify-center gap-4 md:gap-6">
+          <PhoneMockup
+            image="/examples/plumber.png"
+            label="Plumbing"
+            className="transform -translate-x-4 md:translate-x-0"
+            rotation="rotate-[-8deg]"
+          />
+          <PhoneMockup
+            image="/examples/electrician.png"
+            label="Electrical"
+            className="transform translate-x-8 md:translate-x-12"
+            rotation="rotate-[5deg]"
+          />
+          <PhoneMockup
+            image="/examples/carpenter.png"
+            label="Carpentry"
+            className="transform -translate-x-2 md:translate-x-4"
+            rotation="rotate-[-3deg]"
+          />
+        </div>
+
+        {/* Center content - Branding */}
+        <div className="relative z-10 text-center px-4 max-w-md">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold uppercase tracking-tight text-wallaby-white">
+            Wallaby
+          </h2>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold uppercase tracking-tight text-wallaby-accent">
+            Web Design
+          </h2>
+          <p className="mt-4 text-neutral-400 text-sm md:text-base max-w-sm mx-auto">
+            Professional websites built for Australian tradies. Stand out online and get more customers.
+          </p>
+          <a
+            href="#contact"
+            className="inline-block mt-6 px-6 py-3 bg-wallaby-accent text-black font-semibold rounded-lg hover:bg-wallaby-accent/90 transition-colors"
           >
-            {/* Gradient Background */}
-            <div className={`absolute inset-0 bg-gradient-to-br ${trade.color} opacity-90 group-hover:opacity-100 transition-opacity duration-300`}></div>
+            Get Started
+          </a>
+        </div>
 
-            {/* Content */}
-            <div className="relative p-8 min-h-[220px] flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="p-3 bg-white/20 rounded-lg backdrop-blur-sm">
-                    {trade.icon}
-                  </div>
-                  <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
-                    <ArrowUpRight size={16} />
-                  </span>
-                </div>
-                <h3 className="text-2xl font-bold font-display uppercase tracking-wide mb-2">
-                  {trade.name}
-                </h3>
-              </div>
-
-              <p className="text-white/80 text-sm leading-relaxed">
-                {trade.description}
-              </p>
-            </div>
-
-            {/* Hover overlay pattern */}
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
-          </div>
-        ))}
+        {/* Right side phones */}
+        <div className="absolute right-0 md:right-8 lg:right-16 top-0 bottom-0 flex flex-col justify-center gap-4 md:gap-6">
+          <PhoneMockup
+            image="/examples/roofing.png"
+            label="Roofing"
+            className="transform translate-x-4 md:translate-x-0"
+            rotation="rotate-[8deg]"
+          />
+          <PhoneMockup
+            image="/examples/builder.png"
+            label="Building"
+            className="transform -translate-x-8 md:-translate-x-12"
+            rotation="rotate-[-5deg]"
+          />
+          <PhoneMockup
+            image="/examples/architect.png"
+            label="Architecture"
+            className="transform translate-x-2 md:-translate-x-4"
+            rotation="rotate-[3deg]"
+          />
+        </div>
       </div>
 
-      <div className="mt-16 text-center">
-        <p className="text-neutral-500 text-sm uppercase tracking-widest mb-4">
+      {/* Bottom text */}
+      <div className="mt-8 text-center">
+        <p className="text-neutral-500 text-sm uppercase tracking-widest mb-2">
           Don't see your trade?
         </p>
         <p className="text-neutral-400">
