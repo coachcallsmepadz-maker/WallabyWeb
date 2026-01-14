@@ -16,7 +16,7 @@ const LaptopMockup: React.FC<{ image: string }> = ({ image }) => (
     {/* Laptop frame */}
     <div className="relative">
       {/* Screen */}
-      <div className="relative w-[300px] md:w-[450px] lg:w-[550px] aspect-[16/10] bg-neutral-900 rounded-t-xl p-2 border-[3px] border-neutral-700">
+      <div className="relative w-[600px] md:w-[900px] lg:w-[1100px] aspect-[16/10] bg-neutral-900 rounded-t-xl p-2 border-[3px] border-neutral-700">
         {/* Screen bezel */}
         <div className="relative w-full h-full bg-black rounded-lg overflow-hidden">
           {/* Camera dot */}
@@ -30,7 +30,7 @@ const LaptopMockup: React.FC<{ image: string }> = ({ image }) => (
         </div>
       </div>
       {/* Laptop base/hinge */}
-      <div className="relative w-[320px] md:w-[490px] lg:w-[590px] h-4 bg-gradient-to-b from-neutral-600 to-neutral-700 rounded-b-xl mx-auto">
+      <div className="relative w-[640px] md:w-[980px] lg:w-[1180px] h-4 bg-gradient-to-b from-neutral-600 to-neutral-700 rounded-b-xl mx-auto">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-neutral-500 rounded-b" />
       </div>
     </div>
