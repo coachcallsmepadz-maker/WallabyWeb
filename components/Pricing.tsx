@@ -1,176 +1,213 @@
 import React from 'react';
-import Section from './ui/Section';
-import { Star, PhoneMissed, Globe, Check, Phone, MessageCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Globe, Star, Phone, Check, ArrowRight, Sparkles } from 'lucide-react';
 
-const pricingPlans = [
+const plans = [
   {
-    name: "Review Requests",
-    icon: <Star className="w-6 h-6" />,
-    tagline: "Get more 5-star reviews",
-    setupPrice: 299,
-    monthlyPrice: 100,
-    description: "Automatically asks happy customers for reviews so you don't have to.",
+    name: 'Website + Google',
+    icon: Globe,
+    tagline: 'Look like the pro you are',
+    setup: 499,
+    monthly: 50,
     features: [
-      "Texts customers right after the job's done",
-      "One-tap link to leave a Google review",
-      "Builds your online reputation on autopilot",
-      "More reviews = more trust from new customers",
-      "Works while you're on the next job"
+      'Professional website that wins trust',
+      'Google Business fully optimized',
+      'Show up when customers search',
+      'One-tap calling & enquiry forms',
+      'Fast, reliable hosting included',
     ],
-    highlight: false
+    popular: false,
+    color: 'from-blue-500 to-cyan-500',
   },
   {
-    name: "Missed Call Text-Back",
-    icon: <PhoneMissed className="w-6 h-6" />,
-    tagline: "Stop losing leads",
-    setupPrice: 450,
-    monthlyPrice: 200,
-    description: "When you can't answer, we text them back instantly so they don't call someone else.",
+    name: 'Full Package',
+    icon: Sparkles,
+    tagline: 'The complete business upgrade',
+    setup: 999,
+    monthly: 299,
     features: [
-      "Instant text when you miss a call",
-      "Custom message that sounds like you",
-      "Keeps the customer engaged until you're free",
-      "No more losing jobs while you're mid-cut",
-      "Stops leads going to your competitors"
+      'Everything in Website + Google',
+      'Reviews collect on autopilot',
+      'Never miss a lead again',
+      'Priority support when you need it',
+      'Monthly reports showing your growth',
     ],
-    highlight: true
+    popular: true,
+    color: 'from-accent to-orange-400',
   },
   {
-    name: "Website + Google",
-    icon: <Globe className="w-6 h-6" />,
-    tagline: "Get found online",
-    setupPrice: 499,
-    monthlyPrice: 50,
-    description: "A proper website that works on every phone, plus we set up your Google Business so locals find you.",
+    name: 'Review System',
+    icon: Star,
+    tagline: 'Let your reputation sell for you',
+    setup: 299,
+    monthly: 100,
     features: [
-      "Looks great on phones, tablets & computers",
-      "Shows up when people search your trade",
-      "Click-to-call and contact forms built in",
-      "We handle all the tech stuff for you",
-      "Linked to your Google Business profile"
+      'Automatic review requests after jobs',
+      'Direct Google review integration',
+      'Custom messages in your voice',
+      'Track your growing reputation',
+      'Stand out from the competition',
     ],
-    highlight: false
-  }
+    popular: false,
+    color: 'from-yellow-500 to-amber-500',
+  },
 ];
 
 const Pricing: React.FC = () => {
   return (
-    <Section id="pricing" className="bg-wallaby-dark border-t border-white/5">
-      <div className="text-center mb-16 md:mb-24">
-        <span className="text-wallaby-accent text-sm uppercase tracking-[0.3em] mb-4 block">Pricing</span>
-        <h2 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tight mb-4">
-          Simple, <span className="text-neutral-500">Fair Pricing</span>
-        </h2>
-        <p className="text-neutral-400 max-w-2xl mx-auto">
-          No hidden fees, no lock-in contracts. Just straightforward pricing for tools that actually help your business.
-        </p>
+    <section id="pricing" className="relative py-24 md:py-32 bg-secondary overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-accent/5 rounded-full blur-[150px]" />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {pricingPlans.map((plan, index) => (
-          <div
-            key={index}
-            className={`relative flex flex-col p-8 rounded-lg border transition-all duration-300 ${
-              plan.highlight
-                ? 'bg-wallaby-charcoal border-wallaby-accent/50 shadow-lg shadow-wallaby-accent/10'
-                : 'bg-wallaby-charcoal/50 border-white/10 hover:border-white/20'
-            }`}
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        {/* Header */}
+        <div className="text-center mb-16 md:mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6"
           >
-            {plan.highlight && (
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                <span className="px-4 py-1 bg-wallaby-accent text-black text-xs font-bold uppercase tracking-widest rounded-full">
-                  Most Popular
-                </span>
-              </div>
-            )}
+            <span className="text-sm font-medium text-neutral-300">Pricing</span>
+          </motion.div>
 
-            {/* Header */}
-            <div className="mb-6">
-              <div className={`inline-flex p-3 rounded-lg mb-4 ${
-                plan.highlight ? 'bg-wallaby-accent/20' : 'bg-white/5'
-              }`}>
-                <span className={plan.highlight ? 'text-wallaby-accent' : 'text-wallaby-accent'}>
-                  {plan.icon}
-                </span>
-              </div>
-              <h3 className="text-xl font-bold font-display uppercase tracking-wide mb-1">
-                {plan.name}
-              </h3>
-              <p className="text-sm text-neutral-500">{plan.tagline}</p>
-            </div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+          >
+            <span className="text-white">Invest in </span>
+            <span className="text-gradient">better work</span>
+          </motion.h2>
 
-            {/* Pricing */}
-            <div className="mb-6 pb-6 border-b border-white/10">
-              <div className="flex items-baseline gap-2 mb-2">
-                <span className="text-4xl font-bold font-display">${plan.monthlyPrice}</span>
-                <span className="text-neutral-500 text-sm">/month</span>
-              </div>
-              <p className="text-sm text-neutral-500">
-                + ${plan.setupPrice} one-time setup
-              </p>
-            </div>
-
-            {/* Description */}
-            <p className="text-neutral-400 text-sm mb-6">
-              {plan.description}
-            </p>
-
-            {/* Features */}
-            <ul className="space-y-3 mb-8 flex-grow">
-              {plan.features.map((feature, featureIndex) => (
-                <li key={featureIndex} className="flex items-start gap-3 text-sm">
-                  <Check className={`w-4 h-4 mt-0.5 flex-shrink-0 ${
-                    plan.highlight ? 'text-wallaby-accent' : 'text-neutral-500'
-                  }`} />
-                  <span className="text-neutral-300">{feature}</span>
-                </li>
-              ))}
-            </ul>
-
-            {/* CTA */}
-            <a
-              href="tel:0458079666"
-              className={`group flex items-center justify-center gap-2 py-3 px-6 rounded text-sm font-bold uppercase tracking-widest transition-all ${
-                plan.highlight
-                  ? 'bg-wallaby-accent text-black hover:bg-wallaby-accent/90'
-                  : 'border border-white/20 hover:border-wallaby-accent hover:text-wallaby-accent'
-              }`}
-            >
-              <Phone className="w-4 h-4" />
-              Get a Quote
-            </a>
-          </div>
-        ))}
-      </div>
-
-      {/* Bundle CTA */}
-      <div className="mt-16 text-center">
-        <div className="inline-block bg-wallaby-charcoal border border-white/10 rounded-xl p-8 max-w-2xl">
-          <h3 className="text-xl font-bold font-display uppercase mb-2">Want the full package?</h3>
-          <p className="text-neutral-400 mb-6">
-            Get all three tools bundled together and save. Give us a call or message to chat about a deal.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="tel:0458079666"
-              className="flex items-center justify-center gap-2 py-3 px-6 bg-wallaby-accent text-black font-bold uppercase tracking-widest hover:bg-wallaby-accent/90 transition-colors"
-            >
-              <Phone className="w-5 h-5" />
-              Call 0458 079 666
-            </a>
-            <a
-              href="https://wa.me/61458079666"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 py-3 px-6 bg-green-600 text-white font-bold uppercase tracking-widest hover:bg-green-500 transition-colors"
-            >
-              <MessageCircle className="w-5 h-5" />
-              WhatsApp Us
-            </a>
-          </div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-neutral-400 text-lg max-w-2xl mx-auto"
+          >
+            One good job pays for months of this. No lock-in contracts—just tools that bring in clients who value your craft.
+          </motion.p>
         </div>
+
+        {/* Pricing Cards */}
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          {plans.map((plan, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className={`relative ${plan.popular ? 'md:-mt-4 md:mb-4' : ''}`}
+            >
+              {/* Popular badge */}
+              {plan.popular && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+                  <div className="px-4 py-1.5 bg-accent text-white text-xs font-bold rounded-full">
+                    Most Popular
+                  </div>
+                </div>
+              )}
+
+              <div className={`relative h-full p-8 rounded-3xl transition-all duration-300 overflow-hidden ${
+                plan.popular
+                  ? 'glass bg-white/[0.03] border border-accent/30'
+                  : 'glass hover:bg-white/[0.03]'
+              }`}>
+                {/* Gradient glow for popular */}
+                {plan.popular && (
+                  <div className="absolute -top-20 -right-20 w-40 h-40 bg-accent/20 rounded-full blur-[80px]" />
+                )}
+
+                {/* Icon */}
+                <div className={`relative w-12 h-12 rounded-xl bg-gradient-to-br ${plan.color} flex items-center justify-center mb-6`}>
+                  <plan.icon className="w-6 h-6 text-white" />
+                </div>
+
+                {/* Header */}
+                <h3 className="text-2xl font-display font-semibold text-white mb-1">
+                  {plan.name}
+                </h3>
+                <p className="text-neutral-500 text-sm mb-6">{plan.tagline}</p>
+
+                {/* Price */}
+                <div className="mb-6 pb-6 border-b border-white/10">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-4xl font-display font-bold text-white">${plan.monthly}</span>
+                    <span className="text-neutral-500">/mo</span>
+                  </div>
+                  <p className="text-neutral-500 text-sm mt-1">+ ${plan.setup} setup</p>
+                </div>
+
+                {/* Features */}
+                <ul className="space-y-3 mb-8">
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-3 text-sm">
+                      <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
+                        plan.popular ? 'bg-accent/20' : 'bg-white/5'
+                      }`}>
+                        <Check className={`w-3 h-3 ${plan.popular ? 'text-accent' : 'text-neutral-400'}`} />
+                      </div>
+                      <span className="text-neutral-300">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA */}
+                <a
+                  href="tel:0458079666"
+                  className={`group flex items-center justify-center gap-2 w-full py-3.5 rounded-full font-semibold transition-all duration-300 ${
+                    plan.popular
+                      ? 'bg-accent hover:bg-orange-600 text-white'
+                      : 'glass hover:bg-white/10 text-white'
+                  }`}
+                >
+                  Get Started
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Add-on section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-16"
+        >
+          <div className="relative overflow-hidden rounded-3xl glass p-8 md:p-10">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
+                  <Phone className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-display font-semibold text-white mb-1">
+                    Missed Call Text-Back
+                  </h3>
+                  <p className="text-neutral-400 text-sm">Stop losing leads while you're on the tools — $200/mo + $450 setup</p>
+                </div>
+              </div>
+              <a
+                href="tel:0458079666"
+                className="inline-flex items-center gap-2 px-6 py-3 glass hover:bg-white/10 text-white font-medium rounded-full transition-all"
+              >
+                <Phone className="w-4 h-4" />
+                Learn more
+              </a>
+            </div>
+          </div>
+        </motion.div>
       </div>
-    </Section>
+    </section>
   );
 };
 

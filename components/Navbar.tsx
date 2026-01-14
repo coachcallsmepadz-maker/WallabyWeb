@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, MessageCircle } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, Phone, ArrowUpRight } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [showCallOptions, setShowCallOptions] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,140 +16,135 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'What We Do', href: '#services' },
-    { name: 'Process', href: '#process' },
-    { name: 'Examples', href: '#examples' },
     { name: 'Pricing', href: '#pricing' },
-    { name: 'Our Clients', href: '#testimonials' },
+    { name: 'Work', href: '#examples' },
+    { name: 'Process', href: '#process' },
+    { name: 'About', href: '#about' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-black/90 backdrop-blur-md py-3 border-b border-white/10' : 'bg-transparent py-4'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <a href="#" className="flex items-center mr-auto">
-          <span className="text-xl md:text-2xl font-extrabold text-white tracking-tight">Wallaby Web Design</span>
-        </a>
-
-        {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-base uppercase tracking-widest hover:text-wallaby-accent transition-colors font-medium"
-            >
-              {link.name}
+    <>
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled ? 'py-3' : 'py-5'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6">
+          <div className={`flex items-center justify-between rounded-full px-6 py-3 transition-all duration-500 ${
+            scrolled ? 'glass-dark' : ''
+          }`}>
+            {/* Logo */}
+            <a href="#" className="flex items-center gap-3 group">
+              <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center">
+                <span className="text-white font-display font-bold text-lg">W</span>
+              </div>
+              <span className="hidden sm:block text-lg font-display font-semibold text-white group-hover:text-accent transition-colors">
+                Wallaby Web
+              </span>
             </a>
-          ))}
-        </div>
 
-        {/* Call Now Button with dropdown */}
-        <div className="hidden md:flex items-center gap-3 ml-auto pl-8">
-          {/* Call Now Button */}
-          <div className="relative">
+            {/* Desktop Nav */}
+            <div className="hidden lg:flex items-center gap-1">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="px-4 py-2 text-sm font-medium text-neutral-400 hover:text-white transition-colors rounded-full hover:bg-white/5"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
+
+            {/* CTA Button */}
+            <div className="hidden md:flex items-center gap-4">
+              <a
+                href="tel:0458079666"
+                className="group inline-flex items-center gap-2 px-5 py-2.5 bg-accent hover:bg-orange-600 text-white text-sm font-semibold rounded-full transition-all duration-300"
+              >
+                <Phone className="w-4 h-4" />
+                <span>Call Now</span>
+              </a>
+            </div>
+
+            {/* Mobile Menu Button */}
             <button
-              onClick={() => setShowCallOptions(!showCallOptions)}
-              className="group relative px-6 py-2.5 bg-gradient-to-r from-wallaby-accent via-yellow-400 to-orange-500 text-black font-bold uppercase tracking-wider text-sm transition-all duration-300 flex items-center gap-2 rounded-full shadow-lg shadow-wallaby-accent/30 hover:shadow-wallaby-accent/50 hover:scale-105 hover:-translate-y-0.5 overflow-hidden"
+              className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 transition-colors"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-orange-500 via-yellow-400 to-wallaby-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-              <Phone className="w-4 h-4 relative z-10 group-hover:animate-pulse" />
-              <span className="relative z-10">Call Now</span>
+              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
+          </div>
+        </div>
+      </motion.nav>
 
-            {/* Dropdown */}
-            {showCallOptions && (
-              <div className="absolute top-full right-0 mt-2 bg-neutral-900 border border-white/10 rounded-lg overflow-hidden shadow-xl min-w-[200px] animate-fade-in">
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-40 lg:hidden"
+          >
+            {/* Backdrop */}
+            <div
+              className="absolute inset-0 bg-black/80 backdrop-blur-xl"
+              onClick={() => setIsOpen(false)}
+            />
+
+            {/* Menu Content */}
+            <div className="relative h-full flex flex-col items-center justify-center gap-8 p-6">
+              {navLinks.map((link, i) => (
+                <motion.a
+                  key={link.name}
+                  href={link.href}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  className="text-3xl font-display font-semibold text-white hover:text-accent transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </motion.a>
+              ))}
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="flex flex-col gap-4 mt-8 w-full max-w-xs"
+              >
                 <a
                   href="tel:0458079666"
-                  className="flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition-colors"
-                  onClick={() => setShowCallOptions(false)}
+                  className="flex items-center justify-center gap-3 py-4 bg-accent hover:bg-orange-600 text-white font-semibold rounded-full transition-colors"
+                  onClick={() => setIsOpen(false)}
                 >
-                  <div className="w-10 h-10 rounded-full bg-wallaby-accent/20 flex items-center justify-center">
-                    <Phone className="w-5 h-5 text-wallaby-accent" />
-                  </div>
-                  <div>
-                    <span className="block text-sm font-semibold">Phone</span>
-                    <span className="text-xs text-neutral-400">0458 079 666</span>
-                  </div>
+                  <Phone className="w-5 h-5" />
+                  Call 0458 079 666
                 </a>
                 <a
                   href="https://wa.me/61458079666"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition-colors border-t border-white/5"
-                  onClick={() => setShowCallOptions(false)}
+                  className="flex items-center justify-center gap-3 py-4 glass text-white font-medium rounded-full hover:bg-white/10 transition-colors"
+                  onClick={() => setIsOpen(false)}
                 >
-                  <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
-                    <MessageCircle className="w-5 h-5 text-green-500" />
-                  </div>
-                  <div>
-                    <span className="block text-sm font-semibold">WhatsApp</span>
-                    <span className="text-xs text-neutral-400">Message us</span>
-                  </div>
+                  WhatsApp Us
+                  <ArrowUpRight className="w-4 h-4" />
                 </a>
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile Nav */}
-      {isOpen && (
-        <div className="absolute top-full left-0 w-full bg-black border-b border-white/10 md:hidden flex flex-col items-center py-8 space-y-6 animate-fade-in">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-lg uppercase tracking-widest font-bold"
-              onClick={() => setIsOpen(false)}
-            >
-              {link.name}
-            </a>
-          ))}
-
-          {/* Mobile Call Options */}
-          <div className="flex flex-col gap-3 w-full px-6 pt-4 border-t border-white/10">
-            <a
-              href="tel:0458079666"
-              className="flex items-center justify-center gap-2 py-3 bg-wallaby-accent text-black font-bold uppercase tracking-wider"
-              onClick={() => setIsOpen(false)}
-            >
-              <Phone className="w-5 h-5" />
-              Call 0458 079 666
-            </a>
-            <a
-              href="https://wa.me/61458079666"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 py-3 bg-green-600 text-white font-bold uppercase tracking-wider"
-              onClick={() => setIsOpen(false)}
-            >
-              <MessageCircle className="w-5 h-5" />
-              WhatsApp Us
-            </a>
-          </div>
-        </div>
-      )}
-
-      {/* Click outside to close dropdown */}
-      {showCallOptions && (
-        <div
-          className="fixed inset-0 z-[-1]"
-          onClick={() => setShowCallOptions(false)}
-        />
-      )}
-    </nav>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
