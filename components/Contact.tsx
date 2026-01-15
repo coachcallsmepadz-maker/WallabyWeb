@@ -20,7 +20,7 @@ const Contact: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
           {/* Email Card */}
           <a
-            href="mailto:wallabywebdesignau@gmail.com"
+            href="mailto:alex@wallabywebdesign.com"
             className="group flex flex-col items-center p-8 md:p-12 bg-neutral-100 hover:bg-neutral-200 rounded-lg transition-all duration-300"
           >
             <div className="p-4 bg-black rounded-full mb-6 group-hover:bg-wallaby-accent transition-colors">
@@ -30,7 +30,7 @@ const Contact: React.FC = () => {
               Email Us
             </span>
             <span className="text-lg md:text-xl font-bold break-all">
-              wallabywebdesignau@gmail.com
+              alex@wallabywebdesign.com
             </span>
             <span className="mt-4 flex items-center gap-2 text-sm font-medium text-neutral-500 group-hover:text-black transition-colors">
               Send an email <ArrowUpRight className="w-4 h-4" />
