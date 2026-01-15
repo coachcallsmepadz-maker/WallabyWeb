@@ -23,7 +23,7 @@ const industries: IndustryData[] = [
 
 const RevenueCalculator: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showCalculator, setShowCalculator] = useState(false);
+  const [showCalculator, setShowCalculator] = useState(true);
   const [industry, setIndustry] = useState<IndustryData>(industries[8]);
   const [jobsPerWeek, setJobsPerWeek] = useState(15);
   const [avgTicket, setAvgTicket] = useState(500);
@@ -76,13 +76,13 @@ const RevenueCalculator: React.FC = () => {
       {/* Floating Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 left-6 z-50 group flex items-center gap-3 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-black font-bold px-5 py-3 rounded-full shadow-lg shadow-amber-500/30 transition-all duration-300 hover:scale-105 ${
+        className={`fixed bottom-6 right-6 z-50 group flex items-center gap-3 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-black font-bold px-5 py-3 rounded-full shadow-lg shadow-amber-500/30 transition-all duration-300 hover:scale-105 ${
           isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'
         }`}
       >
         <Calculator className="w-5 h-5" />
-        <span className="hidden sm:inline">Revenue Calculator</span>
-        <span className="sm:hidden">Calculate</span>
+        <span className="hidden sm:inline">FIND OUT HOW MUCH YOU'RE LOSING</span>
+        <span className="sm:hidden">HOW MUCH YOU'RE LOSING</span>
       </button>
 
       {/* Modal Overlay */}
