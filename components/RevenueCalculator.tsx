@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Calculator, ChevronDown, DollarSign } from 'lucide-react';
+import { X, Calculator, ChevronDown, TrendingDown } from 'lucide-react';
 
 interface IndustryData {
   name: string;
@@ -21,7 +21,7 @@ const industries: IndustryData[] = [
 const RevenueCalculator: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [industry, setIndustry] = useState<IndustryData>(industries[8]);
-  const [jobsPerWeek, setJobsPerWeek] = useState(15);
+  const [missedLeadsPerWeek, setMissedLeadsPerWeek] = useState(2);
   const [avgTicket, setAvgTicket] = useState(500);
 
   // Update avgTicket when industry changes
@@ -31,9 +31,9 @@ const RevenueCalculator: React.FC = () => {
   };
 
   // Calculations
-  const weeklyRevenue = jobsPerWeek * avgTicket;
-  const monthlyRevenue = weeklyRevenue * 4.33;
-  const yearlyRevenue = monthlyRevenue * 12;
+  const weeklyLoss = missedLeadsPerWeek * avgTicket;
+  const monthlyLoss = weeklyLoss * 4.33;
+  const yearlyLoss = monthlyLoss * 12;
 
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat('en-AU', {
@@ -48,13 +48,13 @@ const RevenueCalculator: React.FC = () => {
       {/* Floating Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 z-50 group flex items-center gap-3 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-black font-bold px-5 py-3 rounded-full shadow-lg shadow-amber-500/30 transition-all duration-300 hover:scale-105 ${
+        className={`fixed bottom-6 right-6 z-50 group flex items-center gap-3 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-400 hover:to-red-500 text-white font-bold px-5 py-3 rounded-full shadow-lg shadow-red-500/30 transition-all duration-300 hover:scale-105 ${
           isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'
         }`}
       >
         <Calculator className="w-5 h-5" />
-        <span className="hidden sm:inline">REVENUE CALCULATOR</span>
-        <span className="sm:hidden">CALCULATOR</span>
+        <span className="hidden sm:inline">HOW MUCH ARE YOU LOSING?</span>
+        <span className="sm:hidden">YOUR LOSS</span>
       </button>
 
       {/* Modal Overlay */}
@@ -76,10 +76,10 @@ const RevenueCalculator: React.FC = () => {
             {/* Header */}
             <div className="p-6 md:p-8 border-b border-white/10">
               <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-2">
-                Revenue <span className="text-amber-500">Calculator</span>
+                Monthly <span className="text-red-500">Loss</span> Calculator
               </h2>
               <p className="text-neutral-400">
-                Calculate your business revenue based on your workload.
+                See how much you're losing from missed leads without a website.
               </p>
             </div>
 
@@ -98,7 +98,7 @@ const RevenueCalculator: React.FC = () => {
                         const selected = industries.find((i) => i.name === e.target.value);
                         if (selected) handleIndustryChange(selected);
                       }}
-                      className="w-full appearance-none bg-neutral-800 border border-white/10 rounded-lg px-4 py-3 text-white pr-10 focus:outline-none focus:border-amber-500/50 transition-colors cursor-pointer"
+                      className="w-full appearance-none bg-neutral-800 border border-white/10 rounded-lg px-4 py-3 text-white pr-10 focus:outline-none focus:border-red-500/50 transition-colors cursor-pointer"
                     >
                       {industries.map((ind) => (
                         <option key={ind.name} value={ind.name}>
@@ -110,21 +110,21 @@ const RevenueCalculator: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Jobs Per Week Slider */}
+                {/* Missed Leads Per Week Slider */}
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500 mb-2">
-                    Jobs / Week
+                    Jobs Per Week On Average
                   </label>
                   <div className="space-y-2">
                     <input
                       type="range"
                       min="1"
-                      max="50"
-                      value={jobsPerWeek}
-                      onChange={(e) => setJobsPerWeek(Number(e.target.value))}
-                      className="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-amber-500"
+                      max="10"
+                      value={missedLeadsPerWeek}
+                      onChange={(e) => setMissedLeadsPerWeek(Number(e.target.value))}
+                      className="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-red-500"
                     />
-                    <div className="text-center text-white font-bold text-lg">{jobsPerWeek}</div>
+                    <div className="text-center text-white font-bold text-lg">{missedLeadsPerWeek}</div>
                   </div>
                 </div>
 
@@ -137,11 +137,11 @@ const RevenueCalculator: React.FC = () => {
                     <input
                       type="range"
                       min="100"
-                      max="10000"
+                      max="2000"
                       step="50"
                       value={avgTicket}
                       onChange={(e) => setAvgTicket(Number(e.target.value))}
-                      className="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-amber-500"
+                      className="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-red-500"
                     />
                     <div className="text-center text-white font-bold text-lg">{formatCurrency(avgTicket)}</div>
                   </div>
@@ -155,30 +155,30 @@ const RevenueCalculator: React.FC = () => {
                 {/* Weekly */}
                 <div className="bg-neutral-800/50 border border-white/5 rounded-xl p-5 text-center">
                   <div className="text-xs font-bold uppercase tracking-wider text-neutral-500 mb-2">
-                    Weekly Revenue
+                    Weekly Loss
                   </div>
                   <div className="text-2xl font-display font-bold text-white">
-                    {formatCurrency(weeklyRevenue)}
+                    {formatCurrency(weeklyLoss)}
                   </div>
                 </div>
 
                 {/* Monthly */}
-                <div className="bg-gradient-to-br from-amber-500/20 to-amber-600/10 border border-amber-500/30 rounded-xl p-5 text-center">
-                  <div className="text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">
-                    Monthly Revenue
+                <div className="bg-gradient-to-br from-red-500/20 to-red-600/10 border border-red-500/30 rounded-xl p-5 text-center">
+                  <div className="text-xs font-bold uppercase tracking-wider text-red-400 mb-2">
+                    Monthly Loss
                   </div>
-                  <div className="text-3xl font-display font-bold text-amber-400">
-                    {formatCurrency(monthlyRevenue)}
+                  <div className="text-3xl font-display font-bold text-red-400">
+                    {formatCurrency(monthlyLoss)}
                   </div>
                 </div>
 
                 {/* Yearly */}
                 <div className="bg-neutral-800/50 border border-white/5 rounded-xl p-5 text-center">
                   <div className="text-xs font-bold uppercase tracking-wider text-neutral-500 mb-2">
-                    Yearly Revenue
+                    Yearly Loss
                   </div>
                   <div className="text-2xl font-display font-bold text-white">
-                    {formatCurrency(yearlyRevenue)}
+                    {formatCurrency(yearlyLoss)}
                   </div>
                 </div>
               </div>
@@ -186,15 +186,15 @@ const RevenueCalculator: React.FC = () => {
               {/* CTA */}
               <div className="mt-8 text-center">
                 <p className="text-neutral-400 mb-4">
-                  Want to grow your {industry.name.toLowerCase()} business?
+                  Stop losing {formatCurrency(monthlyLoss)} every month.
                 </p>
                 <a
                   href="#contact"
                   onClick={() => setIsOpen(false)}
                   className="inline-flex items-center gap-3 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-black font-bold px-8 py-4 rounded-full shadow-lg shadow-amber-500/30 transition-all duration-300 hover:scale-105 text-lg"
                 >
-                  <DollarSign className="w-5 h-5" />
-                  Let's Talk Growth
+                  <TrendingDown className="w-5 h-5" />
+                  Get A Website Now
                 </a>
               </div>
             </div>
