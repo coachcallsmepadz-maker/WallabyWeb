@@ -9,9 +9,9 @@ const examples = [
   { image: '/examples/roofing.png', label: 'Roofing' },
   { image: '/examples/roofing2.png', label: 'Roofing' },
   { image: '/examples/frames.png', label: 'Framing' },
-  { image: '/examples/unnamed.jpg', label: 'Trade' },
-  { image: '/examples/unnamed (1).jpg', label: 'Trade' },
-  { image: '/examples/unnamed (2).jpg', label: 'Trade' },
+  { image: '/examples/unnamed.jpg', label: 'Construction' },
+  { image: '/examples/unnamed (1).jpg', label: 'Architecture' },
+  { image: '/examples/unnamed (2).jpg', label: 'Solar' },
 ];
 
 const LaptopMockup: React.FC<{ image: string }> = ({ image }) => (
