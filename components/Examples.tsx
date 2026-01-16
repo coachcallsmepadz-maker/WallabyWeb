@@ -3,12 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 
 const examples = [
+  { image: '/examples/frames.png', label: 'Framing' },
   { image: '/examples/builder.png', label: 'Building' },
   { image: '/examples/plumber.png', label: 'Plumbing' },
   { image: '/examples/carpenter.png', label: 'Carpentry' },
   { image: '/examples/roofing.png', label: 'Roofing' },
   { image: '/examples/roofing2.png', label: 'Roofing' },
-  { image: '/examples/frames.png', label: 'Framing' },
   { image: '/examples/unnamed.jpg', label: 'Construction' },
   { image: '/examples/unnamed (1).jpg', label: 'Architecture' },
   { image: '/examples/unnamed (2).jpg', label: 'Solar' },
