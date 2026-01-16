@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Calculator, ChevronDown, TrendingDown } from 'lucide-react';
+import { X, Calculator, ChevronDown } from 'lucide-react';
 
 interface IndustryData {
   name: string;
@@ -193,8 +193,7 @@ const RevenueCalculator: React.FC = () => {
                   onClick={() => setIsOpen(false)}
                   className="inline-flex items-center gap-3 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-black font-bold px-8 py-4 rounded-full shadow-lg shadow-amber-500/30 transition-all duration-300 hover:scale-105 text-lg"
                 >
-                  <TrendingDown className="w-5 h-5" />
-                  Get A Website Now
+                  Find Out How We Help Businesses Recover This Money
                 </a>
               </div>
             </div>
