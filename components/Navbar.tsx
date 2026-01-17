@@ -184,7 +184,7 @@ const Navbar: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <img
-                  src="/logo.png"
+                  src="/icon/icon.png"
                   alt="Wallaby Web Logo"
                   className="h-11 w-auto object-contain"
                 />
