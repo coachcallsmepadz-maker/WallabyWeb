@@ -113,7 +113,7 @@ const RevenueCalculator: React.FC = () => {
                 {/* Missed Leads Per Week Slider */}
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500 mb-2">
-                    Jobs Per Week On Average
+                    Avg. Missed Calls Per Day
                   </label>
                   <div className="space-y-2">
                     <input
