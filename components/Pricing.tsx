@@ -4,15 +4,15 @@ import { Globe, Star, Phone, Check, ArrowRight } from 'lucide-react';
 
 const plans = [
   {
-    name: 'Website + Google',
+    name: 'Website Creation',
     icon: Globe,
     tagline: 'Look like the pro you are',
-    setup: 499,
-    monthly: 50,
+    setup: 449,
+    monthly: 100,
     features: [
       'Professional website that wins trust',
-      'Google Business fully optimized',
-      'Show up when customers search',
+      'Attract better clients & higher-value work',
+      'Professional online representation of your business',
       'One-tap calling & enquiry forms',
       'Fast, reliable hosting included',
     ],
