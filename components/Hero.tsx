@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
 
           {/* Secondary link */}
           <a
-            href="#services"
+            href="#pricing"
             className="text-neutral-400 hover:text-wallaby-accent transition-colors text-sm uppercase tracking-widest md:ml-2"
           >
             Or scroll down to see what we do ↓
