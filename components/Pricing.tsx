@@ -70,7 +70,7 @@ const Pricing: React.FC = () => {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6"
           >
-            <span className="text-sm font-medium text-neutral-300">Pricing</span>
+            <span className="text-sm font-medium text-neutral-300">What We Do</span>
           </motion.div>
 
           <motion.h2
