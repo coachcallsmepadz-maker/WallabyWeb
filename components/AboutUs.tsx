@@ -261,82 +261,129 @@ const AboutUs: React.FC = () => {
         </div>
       </Section>
 
-      {/* Why Wallaby Web Section */}
-      <Section className="bg-wallaby-dark relative overflow-hidden py-24 md:py-32">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.03)_0%,transparent_100%)]" />
+      {/* Why Wallaby Web Section - The "Site Foundation" Design */}
+      <Section id="why-us" className="bg-neutral-950 relative overflow-hidden py-24 md:py-32">
+        {/* Dark Concrete Texture Background */}
+        <div className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E")`,
+            filter: 'contrast(120%) brightness(60%)'
+          }}
+        />
 
-        <div className="relative z-10 px-4">
-          <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="relative z-10 px-4 max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-24">
             <motion.span
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              className="text-wallaby-accent text-sm uppercase tracking-[0.5em] font-bold mb-4 block"
+              className="px-4 py-1.5 rounded bg-wallaby-accent/10 border border-wallaby-accent/20 text-wallaby-accent text-xs font-bold uppercase tracking-[0.2em] mb-6 inline-block"
             >
-              The DNA of our Code
+              Built Different
             </motion.span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white uppercase tracking-tight mb-6">
               Why <span className="text-wallaby-accent">Wallaby Web</span>?
             </h2>
-            <p className="text-neutral-400 text-lg leading-relaxed">
-              We don't do "fluff." We build digital foundations for tradies and small businesses who need results, not just a pretty picture. It's construction for the web.
+            <p className="text-neutral-400 text-lg leading-relaxed max-w-2xl mx-auto">
+              We speak your language. No corporate fluff, no confusing tech-talk. Just solid digital foundations built to hold the weight of your business.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto perspective-1000">
-            {[
-              {
-                title: "Industry Veteran",
-                desc: "I know what a lead is worth. I've been in the trade, I understand the hustle, and I know what actually moves the needle for your business.",
-                icon: <Briefcase className="w-8 h-8" />
-              },
-              {
-                title: "Zero Jargon",
-                desc: "I talk to you like a person, not an IT manual. Plain English, straight answers, and clear communication from start to finish.",
-                icon: <div className="text-3xl font-display">No BS</div>
-              },
-              {
-                title: "Overbuilt Quality",
-                desc: "Just like a well-built house, our sites are fast, sturdy, and designed to grow. No cheap shortcuts, no duct-tape solutions.",
-                icon: <Zap className="w-8 h-8" />
-              }
-            ].map((card, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                whileHover={{ y: -10, rotateX: 5, rotateY: 5 }}
-                className="group h-full"
-              >
-                <div className="h-full glass-premium p-8 md:p-10 rounded-[2rem] border border-white/5 group-hover:border-wallaby-accent/30 transition-all duration-500 relative flex flex-col justify-between overflow-hidden">
-                  {/* Decorative background number */}
-                  <div className="absolute -bottom-4 -right-4 text-9xl font-display font-bold text-white/[0.02] pointer-events-none">
-                    0{idx + 1}
-                  </div>
+          <div className="relative max-w-6xl mx-auto">
+            {/* The Builder's String Line - Connecting the cards */}
+            <div className="hidden md:block absolute top-[35%] left-0 right-0 h-0.5 bg-wallaby-accent/30 z-0">
+              <div className="absolute inset-y-0 left-0 right-0 bg-wallaby-accent shadow-[0_0_10px_rgba(245,158,11,0.6)]" />
+            </div>
 
-                  <div>
-                    <div className="w-16 h-16 rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-wallaby-accent mb-8 shadow-inner">
-                      {card.icon}
+            <div className="grid md:grid-cols-3 gap-8 md:gap-12 relative z-10">
+              {[
+                {
+                  id: "01",
+                  title: "Industry Veteran",
+                  subtitle: "WE KNOW THE TRADE",
+                  desc: "I've been on the tools. I know the difference between a rough-in and fit-off, and I know what a lead is actually worth to you.",
+                  icon: <Wrench className="w-8 h-8" />
+                },
+                {
+                  id: "02",
+                  title: "No BS Talk",
+                  subtitle: "STRAIGHT ANSWERS",
+                  desc: "We don't hide behind 'tech speak'. We tell you exactly what you need, what it costs, and when it will be done. Simple.",
+                  icon: <div className="text-2xl font-bold font-sans">Aa</div>
+                },
+                {
+                  id: "03",
+                  title: "Solid Build",
+                  subtitle: "BUILT TO LAST",
+                  desc: "Like a well-plumbed house, our sites have great flow and zero leaks. Fast, sturdy, and compliant with all modern standards.",
+                  icon: <ShieldCheck className="w-8 h-8" />
+                }
+              ].map((card, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: idx * 0.2 }}
+                  viewport={{ once: true }}
+                  className="group relative"
+                >
+                  {/* The Card - Concrete Slab Look */}
+                  <div className="h-full bg-neutral-900 border-2 border-neutral-800 rounded-lg p-8 pt-12 relative overflow-hidden transition-colors duration-300 group-hover:border-wallaby-accent/50">
+
+                    {/* Metal Texture Overlay */}
+                    <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(45deg,rgba(255,255,255,0.1)_25%,transparent_25%,transparent_50%,rgba(255,255,255,0.1)_50%,rgba(255,255,255,0.1)_75%,transparent_75%,transparent)] bg-[length:4px_4px]" />
+
+                    {/* Top Clip Detail (Visual anchor to the line) */}
+                    <div className="absolute top-[35%] -translate-y-[2px] -left-[2px] -right-[2px] h-1 flex justify-between items-center px-0">
+                      <div className="w-1.5 h-3 bg-wallaby-accent rounded-r-sm shadow-[0_0_8px_rgba(245,158,11,0.8)]" />
+                      <div className="w-1.5 h-3 bg-wallaby-accent rounded-l-sm shadow-[0_0_8px_rgba(245,158,11,0.8)]" />
                     </div>
-                    <h3 className="text-2xl font-display font-bold text-white uppercase tracking-wide mb-4">
-                      {card.title}
-                    </h3>
-                    <p className="text-neutral-400 leading-relaxed group-hover:text-neutral-300 transition-colors">
-                      {card.desc}
-                    </p>
-                  </div>
 
-                  <div className="mt-8 pt-8 border-t border-white/5 flex items-center text-xs uppercase tracking-widest text-wallaby-accent font-bold opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span className="mr-2">Tradie Born</span>
-                    <span className="text-neutral-700">|</span>
-                    <span className="ml-2">Tech Driven</span>
+                    {/* Stencil Number */}
+                    <div className="absolute top-4 right-4 text-6xl font-display font-bold text-white/[0.04] group-hover:text-wallaby-accent/10 transition-colors select-none font-sans tracking-tighter">
+                      {card.id}
+                    </div>
+
+                    {/* Icon Box */}
+                    <div className="relative mb-12">
+                      <div className="w-16 h-16 bg-neutral-800 rounded flex items-center justify-center text-white border border-neutral-700 shadow-inner group-hover:bg-neutral-800 transition-colors">
+                        {card.icon}
+                      </div>
+                      {/* Connector Line Vertical Drop */}
+                      <div className="absolute top-16 left-8 w-px h-8 bg-neutral-700 group-hover:bg-wallaby-accent/50 transition-colors" />
+                    </div>
+
+                    <div className="relative">
+                      <div className="text-xs font-bold text-wallaby-accent uppercase tracking-widest mb-2 font-mono">
+                        {card.subtitle}
+                      </div>
+                      <h3 className="text-2xl font-display font-bold text-white uppercase tracking-wide mb-4">
+                        {card.title}
+                      </h3>
+                      <p className="text-neutral-400 leading-relaxed border-t border-neutral-800 pt-4 group-hover:border-neutral-700 transition-colors">
+                        {card.desc}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Bottom Tagline */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+              className="mt-16 text-center"
+            >
+              <div className="inline-flex items-center gap-3 text-neutral-500 text-sm font-mono uppercase tracking-widest">
+                <div className="h-px w-8 bg-neutral-800" />
+                <span>Est. 2026 // Melbourne, AU</span>
+                <div className="h-px w-8 bg-neutral-800" />
+              </div>
+            </motion.div>
           </div>
         </div>
-      </Section >
+      </Section>
     </>
   );
 };
