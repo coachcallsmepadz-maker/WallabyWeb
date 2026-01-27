@@ -22,8 +22,8 @@ const Hero: React.FC = () => {
         </div>
 
         <h1 className="font-display font-bold text-5xl md:text-8xl lg:text-9xl leading-[0.9] tracking-tighter uppercase mb-8">
-          <span className="block text-white">More Customers</span>
-          <span className="block text-white">Less Hassle</span>
+          <span className="block text-white">Unbelievable Websites,</span>
+          <span className="block text-white">Unbelievable Prices</span>
         </h1>
 
         <p className="max-w-xl text-neutral-400 text-lg md:text-xl leading-relaxed mb-10 md:ml-2">
