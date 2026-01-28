@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone, ArrowUpRight, Sparkles } from 'lucide-react';
+import { Menu, X, Phone, ArrowUpRight, Sparkles, MessageCircle } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -227,8 +227,19 @@ const Navbar: React.FC = () => {
               ))}
             </div>
 
-            {/* CTA Button */}
+            {/* CTA Buttons */}
             <div className="hidden md:flex items-center gap-3">
+              <motion.a
+                href="https://wa.me/61458079666"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 px-5 py-3 text-sm font-sans font-semibold rounded-full bg-green-600 hover:bg-green-500 text-white transition-all duration-300"
+                whileHover={{ scale: 1.02, y: -1 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span className="tracking-wide">WhatsApp</span>
+              </motion.a>
               <motion.a
                 href="tel:0458079666"
                 className="cta-glow group inline-flex items-center gap-2.5 px-6 py-3 text-sm font-sans font-semibold rounded-full transition-all duration-300"

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MessageCircle } from 'lucide-react';
+
 
 const Hero: React.FC = () => {
   return (
@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
         </div>
 
         <h1 className="font-display font-bold text-5xl md:text-8xl lg:text-9xl leading-[0.9] tracking-tighter uppercase mb-8">
-          <span className="block text-white">Unbelievable Websites,</span>
+          <span className="block text-white">Unbelievable Websites</span>
           <span className="block text-white">Unbelievable Prices</span>
         </h1>
 
@@ -30,32 +30,8 @@ const Hero: React.FC = () => {
           We build websites that actually bring in jobs. No tech speak, no nonsense — just more customers finding you online while you focus on the tools.
         </p>
 
-        {/* Big Call Now Section */}
+        {/* Secondary link */}
         <div className="flex flex-col gap-6 md:ml-2">
-          {/* Primary CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a
-              href="tel:0458079666"
-              className="group relative px-8 py-5 bg-wallaby-accent text-black font-bold uppercase tracking-wider overflow-hidden flex items-center justify-center gap-3 text-lg"
-            >
-              <Phone className="w-6 h-6" />
-              <span className="relative z-10">
-                Call Now
-              </span>
-            </a>
-
-            <a
-              href="https://wa.me/61458079666"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-5 bg-green-600 hover:bg-green-500 text-white font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-3 text-lg"
-            >
-              <MessageCircle className="w-6 h-6" />
-              WhatsApp Us
-            </a>
-          </div>
-
-          {/* Secondary link */}
           <a
             href="#pricing"
             className="text-neutral-400 hover:text-wallaby-accent transition-colors text-sm uppercase tracking-widest md:ml-2"
