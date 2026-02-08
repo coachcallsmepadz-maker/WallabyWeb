@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Section from './ui/Section';
-import { Mail, Phone, MessageCircle, ArrowUpRight } from 'lucide-react';
+import { Mail, Phone, MessageCircle, ArrowUpRight, X } from 'lucide-react';
 
 const Contact: React.FC = () => {
+  const [showTerms, setShowTerms] = useState(false);
+
   return (
     <Section id="contact" className="bg-wallaby-white text-black">
       <div className="max-w-4xl mx-auto text-center">
@@ -83,8 +85,65 @@ const Contact: React.FC = () => {
           <p className="text-neutral-500 text-sm">
             Australian based. Local support. <span className="text-black font-medium">Grow your trade business today.</span>
           </p>
+          <button
+            onClick={() => setShowTerms(true)}
+            className="mt-3 text-xs text-neutral-400 hover:text-neutral-600 underline underline-offset-2 transition-colors"
+          >
+            Terms &amp; Conditions
+          </button>
         </div>
       </div>
+
+      {/* Terms & Conditions Modal */}
+      {showTerms && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+          onClick={() => setShowTerms(false)}
+        >
+          <div
+            className="relative bg-white rounded-xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-8 md:p-10 text-left"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setShowTerms(false)}
+              className="absolute top-4 right-4 p-1 text-neutral-400 hover:text-black transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <h3 className="text-2xl font-display font-bold mb-6">Wallaby Web Design – Terms of Service</h3>
+
+            <div className="space-y-6 text-sm text-neutral-700 leading-relaxed">
+              <div>
+                <h4 className="font-bold text-black mb-1">1. Monthly Subscription</h4>
+                <p>By purchasing a website through our Stripe checkout, you are signing up for a monthly subscription. You authorize Wallaby Web Design to charge your card every month to keep your website live and maintained.</p>
+              </div>
+
+              <div>
+                <h4 className="font-bold text-black mb-1">2. Late Payments &amp; Website Takedown</h4>
+                <p className="mb-2">To keep your website running, payments must be made on time.</p>
+                <p className="mb-2"><span className="font-medium text-black">The 7-Day Rule:</span> If your payment fails or is not made, you have a 7-day grace period to fix it.</p>
+                <p><span className="font-medium text-black">Takedown:</span> If the fee is more than 1 week (7 days) late, Wallaby Web Design has the right to take down your website immediately.</p>
+              </div>
+
+              <div>
+                <h4 className="font-bold text-black mb-1">3. Ownership</h4>
+                <p>As long as your subscription is active, you have full use of the website. If you stop paying or cancel your subscription, your right to use the website ends, and the site will be taken offline.</p>
+              </div>
+
+              <div>
+                <h4 className="font-bold text-black mb-1">4. Cancellations</h4>
+                <p>You can cancel your subscription at any time. Your website will stay online until the end of your current paid month. After that, the site will be taken down until payment is made.</p>
+              </div>
+
+              <div>
+                <h4 className="font-bold text-black mb-1">5. Responsibility</h4>
+                <p>Wallaby Web Design is not responsible for any lost business or data if your website is taken down due to a missed payment.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </Section>
   );
 };
