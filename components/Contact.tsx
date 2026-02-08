@@ -1,9 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Section from './ui/Section';
 import { Mail, Phone, MessageCircle, ArrowUpRight, X } from 'lucide-react';
 
 const Contact: React.FC = () => {
-  const [showTerms, setShowTerms] = useState(false);
+  const [showTerms, setShowTerms] = useState(() => window.location.pathname === '/terms');
+
+  const openTerms = useCallback(() => {
+    setShowTerms(true);
+    window.history.pushState({}, '', '/terms');
+  }, []);
+
+  const closeTerms = useCallback(() => {
+    setShowTerms(false);
+    window.history.pushState({}, '', '/');
+  }, []);
+
+  useEffect(() => {
+    const onPopState = () => {
+      setShowTerms(window.location.pathname === '/terms');
+    };
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
 
   return (
     <Section id="contact" className="bg-wallaby-white text-black">
@@ -86,7 +104,7 @@ const Contact: React.FC = () => {
             Australian based. Local support. <span className="text-black font-medium">Grow your trade business today.</span>
           </p>
           <button
-            onClick={() => setShowTerms(true)}
+            onClick={openTerms}
             className="mt-3 text-xs text-neutral-400 hover:text-neutral-600 underline underline-offset-2 transition-colors"
           >
             Terms &amp; Conditions
@@ -98,14 +116,14 @@ const Contact: React.FC = () => {
       {showTerms && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
-          onClick={() => setShowTerms(false)}
+          onClick={closeTerms}
         >
           <div
             className="relative bg-white rounded-xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-8 md:p-10 text-left"
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              onClick={() => setShowTerms(false)}
+              onClick={closeTerms}
               className="absolute top-4 right-4 p-1 text-neutral-400 hover:text-black transition-colors"
             >
               <X className="w-5 h-5" />
