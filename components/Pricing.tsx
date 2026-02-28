@@ -4,7 +4,7 @@ import { Globe, Star, Phone, Check, ArrowRight } from 'lucide-react';
 
 const plans = [
   {
-    name: 'Website Creation',
+    name: 'Website Design',
     icon: Globe,
     tagline: 'Look like the pro you are',
     setup: 449,
@@ -16,48 +16,38 @@ const plans = [
       'One-tap calling & enquiry forms',
       'Fast, reliable hosting included',
     ],
-    popular: false,
+    popular: true,
     color: 'from-blue-500 to-cyan-500',
   },
   {
-    name: 'Missed Call Text-Back',
-    icon: Phone,
-    tagline: 'Never lose a lead again',
-    setup: 450,
-    monthly: 200,
-    features: [
-      'Instant text when you miss a call',
-      'Custom messages in your voice',
-      'Keep leads warm while you work',
-      'Works with your existing number',
-      'Track every opportunity',
-    ],
-    popular: true,
-    color: 'from-green-500 to-emerald-500',
-  },
-  {
-    name: 'Review System',
+    name: 'Free Google Business Profile Setup',
     icon: Star,
-    tagline: 'Let your reputation sell for you',
-    setup: 299,
-    monthly: 100,
+    tagline: 'Get found on Google Search & Maps',
+    setup: 0,
+    monthly: 0,
     features: [
-      'Automatic review requests after jobs',
-      'Direct Google review integration',
-      'Custom messages in your voice',
-      'Track your growing reputation',
-      'Stand out from the competition',
+      'Complete Google Business Profile setup',
+      'Optimized for local search results',
+      'Business description & category selection',
+      'Verification assistance',
+      'Integrated with your new website',
     ],
     popular: false,
-    color: 'from-yellow-500 to-amber-500',
+    color: 'from-green-500 to-emerald-500',
   },
 ];
 
 const Pricing: React.FC = () => {
   return (
     <section id="pricing" className="relative py-24 md:py-32 bg-secondary overflow-hidden">
-      {/* Background */}
+      {/* Background Image with Blending */}
       <div className="absolute inset-0 z-0">
+        <img
+          src="/pricing-bg.png"
+          alt=""
+          className="w-full h-full object-cover opacity-20 mix-blend-overlay"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary via-secondary/80 to-secondary" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-accent/5 rounded-full blur-[150px]" />
       </div>
 
@@ -96,7 +86,7 @@ const Pricing: React.FC = () => {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-12 max-w-5xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
@@ -115,11 +105,10 @@ const Pricing: React.FC = () => {
                 </div>
               )}
 
-              <div className={`relative h-full p-8 rounded-3xl transition-all duration-300 overflow-hidden ${
-                plan.popular
-                  ? 'glass bg-white/[0.03] border border-accent/30'
-                  : 'glass hover:bg-white/[0.03]'
-              }`}>
+              <div className={`relative h-full p-8 rounded-3xl transition-all duration-300 overflow-hidden ${plan.popular
+                ? 'glass bg-white/[0.03] border border-accent/30'
+                : 'glass hover:bg-white/[0.03]'
+                }`}>
                 {/* Gradient glow for popular */}
                 {plan.popular && (
                   <div className="absolute -top-20 -right-20 w-40 h-40 bg-accent/20 rounded-full blur-[80px]" />
@@ -149,9 +138,8 @@ const Pricing: React.FC = () => {
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm">
-                      <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
-                        plan.popular ? 'bg-accent/20' : 'bg-white/5'
-                      }`}>
+                      <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${plan.popular ? 'bg-accent/20' : 'bg-white/5'
+                        }`}>
                         <Check className={`w-3 h-3 ${plan.popular ? 'text-accent' : 'text-neutral-400'}`} />
                       </div>
                       <span className="text-neutral-300">{feature}</span>
@@ -162,11 +150,10 @@ const Pricing: React.FC = () => {
                 {/* CTA */}
                 <a
                   href="tel:0458079666"
-                  className={`group flex items-center justify-center gap-2 w-full py-3.5 rounded-full font-semibold transition-all duration-300 ${
-                    plan.popular
-                      ? 'bg-accent hover:bg-orange-600 text-white'
-                      : 'glass hover:bg-white/10 text-white'
-                  }`}
+                  className={`group flex items-center justify-center gap-2 w-full py-3.5 rounded-full font-semibold transition-all duration-300 ${plan.popular
+                    ? 'bg-accent hover:bg-orange-600 text-white'
+                    : 'glass hover:bg-white/10 text-white'
+                    }`}
                 >
                   Get Started
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

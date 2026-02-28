@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
       setScrolled(window.scrollY > 50);
 
       // Update active section based on scroll position
-      const sections = ['pricing', 'examples', 'process', 'about', 'why-us', 'contact'];
+      const sections = ['examples', 'pricing', 'process', 'about', 'why-us', 'contact'];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -29,8 +29,8 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Pricing', href: '#pricing' },
     { name: 'Work', href: '#examples' },
+    { name: 'Pricing', href: '#pricing' },
     { name: 'Process', href: '#process' },
     { name: 'About', href: '#about' },
     { name: 'Why Us', href: '#why-us' },
@@ -199,10 +199,7 @@ const Navbar: React.FC = () => {
               </motion.div>
               <div className="hidden sm:flex flex-col">
                 <span className="text-lg font-sans font-bold text-white group-hover:text-gradient-gold transition-all duration-300 tracking-tight">
-                  Wallaby Web
-                </span>
-                <span className="text-[10px] font-sans uppercase tracking-[0.2em] text-neutral-500 group-hover:text-amber-400/60 transition-colors">
-                  Digital Solutions
+                  Wallaby Web Design
                 </span>
               </div>
             </a>
@@ -239,20 +236,6 @@ const Navbar: React.FC = () => {
               >
                 <MessageCircle className="w-4 h-4" />
                 <span className="tracking-wide">WhatsApp</span>
-              </motion.a>
-              <motion.a
-                href="tel:0458079666"
-                className="cta-glow group inline-flex items-center gap-2.5 px-6 py-3 text-sm font-sans font-semibold rounded-full transition-all duration-300"
-                style={{
-                  background: 'linear-gradient(135deg, #F59E0B 0%, #D97706 100%)',
-                  color: '#0A0A0A',
-                }}
-                whileHover={{ scale: 1.02, y: -1 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Phone className="w-4 h-4 transition-transform group-hover:rotate-12" />
-                <span className="tracking-wide">Call Now</span>
-                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </motion.a>
             </div>
 
@@ -343,17 +326,6 @@ const Navbar: React.FC = () => {
                 transition={{ delay: 0.4, duration: 0.4 }}
                 className="flex flex-col gap-4 mt-10 w-full max-w-sm"
               >
-                <a
-                  href="tel:0458079666"
-                  className="flex items-center justify-center gap-3 py-4 px-6 font-sans font-semibold rounded-2xl transition-all duration-300 text-black"
-                  style={{
-                    background: 'linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #D97706 100%)',
-                  }}
-                  onClick={() => setIsOpen(false)}
-                >
-                  <Phone className="w-5 h-5" />
-                  Call 0458 079 666
-                </a>
                 <a
                   href="https://wa.me/61458079666"
                   target="_blank"

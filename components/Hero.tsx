@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
         </h1>
 
         <p className="max-w-xl text-neutral-400 text-lg md:text-xl leading-relaxed mb-10 md:ml-2">
-          We build websites that actually bring in jobs. No tech speak, no nonsense — just more customers finding you online while you focus on the tools.
+          Your vision, our code. The tech is on us.
         </p>
 
         {/* Secondary link */}
