@@ -4,6 +4,35 @@
    ============================================ */
 
 /* Base styles for sections with background images */
+section {
+    position: relative;
+}
+
+/* Seamless blend overlays for smooth transitions between sections */
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(to bottom, #111111 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 20;
+}
+
+section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(to top, #111111 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 20;
+}
+
 .section-bg {
     position: relative;
     background-size: cover;

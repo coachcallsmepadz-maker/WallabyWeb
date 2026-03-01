@@ -5,29 +5,22 @@ const Hero: React.FC = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-wallaby-dark pt-28 md:pt-20">
       {/* Background Graphic Elements */}
-      <div className="absolute inset-0 z-0 opacity-75 pointer-events-none">
+      <div className="absolute inset-0 z-0 opacity-100 pointer-events-none">
         <img
           src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2560&q=80"
           alt="Modern Industrial Architecture"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover opacity-80"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-wallaby-dark via-wallaby-dark/90 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-wallaby-dark via-wallaby-dark/60 to-transparent" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full text-center md:text-left">
-        <div className="mb-4 inline-block">
-          <span className="px-3 py-1 border border-wallaby-accent/50 text-wallaby-accent text-xs tracking-[0.2em] uppercase font-bold bg-wallaby-accent/5 backdrop-blur-sm">
-            Made for Aussie Tradies
-          </span>
-        </div>
-
-        <h1 className="font-display font-bold text-5xl md:text-8xl lg:text-9xl leading-[0.9] tracking-tighter uppercase mb-8">
-          <span className="block text-white">Unbelievable Websites</span>
-          <span className="block text-white">Unbelievable Prices</span>
+        <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-7xl leading-[1.1] tracking-tighter uppercase mb-6">
+          <span className="block text-white">Your Vision, Our Code</span>
         </h1>
 
-        <p className="max-w-xl text-neutral-400 text-lg md:text-xl leading-relaxed mb-10 md:ml-2">
-          Your vision, our code. The tech is on us.
+        <p className="max-w-xl text-neutral-300 text-xl flex flex-col md:text-2xl leading-relaxed mb-10 md:ml-2">
+          The tech is on us.
         </p>
 
         {/* Secondary link */}

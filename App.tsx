@@ -6,10 +6,7 @@ import Examples from './components/Examples';
 import Pricing from './components/Pricing';
 import Testimonials from './components/Testimonials';
 import AboutUs from './components/AboutUs';
-import Contact from './components/Contact';
-import RevenueCalculator from './components/RevenueCalculator';
-
-const App: React.FC = () => {
+import Contact from './components/Contact'; const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-primary text-light font-sans">
       <Navbar />
@@ -22,7 +19,6 @@ const App: React.FC = () => {
         <AboutUs />
         <Contact />
       </main>
-      <RevenueCalculator />
       <footer className="bg-primary py-8 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
