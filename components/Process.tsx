@@ -1,7 +1,7 @@
 import React from 'react';
 import Section from './ui/Section';
 import { motion } from 'framer-motion';
-import { Search, PenTool, Code, Rocket, Clock, ChevronRight } from 'lucide-react';
+import { Search, PenTool, Code, Rocket, Clock } from 'lucide-react';
 
 const steps = [
   {
@@ -40,7 +40,7 @@ const steps = [
 
 const Process: React.FC = () => {
   return (
-    <Section id="process" className="bg-neutral-950 relative overflow-hidden py-24 md:py-32">
+    <Section id="process" className="bg-neutral-950 relative overflow-hidden py-16 md:py-20 lg:py-24">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 z-0">
         {/* Floating orbs */}
@@ -63,16 +63,16 @@ const Process: React.FC = () => {
 
         {/* Grid pattern */}
         <div className="absolute inset-0 opacity-[0.03]"
-             style={{
-               backgroundImage: 'linear-gradient(rgba(255, 255, 255, 1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 1) 1px, transparent 1px)',
-               backgroundSize: '60px 60px'
-             }}>
+          style={{
+            backgroundImage: 'linear-gradient(rgba(255, 255, 255, 1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 1) 1px, transparent 1px)',
+            backgroundSize: '60px 60px'
+          }}>
         </div>
       </div>
 
       <div className="relative z-10 container mx-auto px-4">
         {/* Header Section */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 lg:mb-16">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -112,98 +112,59 @@ const Process: React.FC = () => {
           </motion.p>
         </div>
 
-        {/* Steps - Alternating Layout */}
-        <div className="space-y-8 md:space-y-0">
+        {/* Steps - Modern Grid Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8 relative z-20">
           {steps.map((step, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ delay: index * 0.15, duration: 0.6 }}
-              className={`md:grid md:grid-cols-2 md:gap-12 lg:gap-20 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''} ${index !== steps.length - 1 ? 'md:mb-24' : ''}`}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              className="group relative h-[380px] lg:h-[420px] rounded-3xl overflow-hidden flex flex-col justify-end p-6 border border-neutral-800/60 bg-neutral-900/40 hover:border-wallaby-accent/50 transition-all duration-500 hover:-translate-y-2 shadow-xl hover:shadow-wallaby-accent/10"
             >
-              {/* Image Side */}
-              <div className={`relative mb-8 md:mb-0 ${index % 2 === 1 ? 'md:order-2' : ''}`}>
-                <div className="relative group">
-                  {/* Glow effect behind image */}
-                  <div className={`absolute -inset-4 bg-gradient-to-r ${step.gradient} rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
+              {/* Background Image */}
+              <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/70 to-neutral-950/30 z-10" />
+                <div className={`absolute inset-0 bg-gradient-to-t ${step.gradient} opacity-20 mix-blend-overlay z-10 group-hover:opacity-40 transition-opacity duration-500`} />
+                <img
+                  src={step.image}
+                  alt={step.title}
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 opacity-50 group-hover:opacity-100"
+                />
+              </div>
 
-                  {/* Main image container */}
-                  <div className="relative overflow-hidden rounded-2xl border border-neutral-800 group-hover:border-wallaby-accent/30 transition-all duration-500">
-                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/50 to-transparent z-10" />
-                    <motion.img
-                      src={step.image}
-                      alt={step.title}
-                      className="w-full h-64 md:h-80 lg:h-96 object-cover transform group-hover:scale-105 transition-transform duration-700"
-                    />
-
-                    {/* Step number overlay */}
-                    <div className="absolute top-6 left-6 z-20">
-                      <span className="text-8xl md:text-9xl font-display font-bold text-white/5 select-none">
-                        {step.id}
-                      </span>
-                    </div>
-
-                    {/* Icon badge */}
-                    <motion.div
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      className="absolute bottom-6 right-6 z-20 w-16 h-16 rounded-2xl bg-wallaby-accent/90 backdrop-blur-sm flex items-center justify-center text-neutral-950 shadow-lg shadow-wallaby-accent/30"
-                    >
-                      {step.icon}
-                    </motion.div>
+              {/* Content Foreground */}
+              <div className="relative z-20 flex flex-col h-full justify-between">
+                {/* Top header: Number + Icon */}
+                <div className="flex justify-between items-start">
+                  <span className="text-6xl font-display font-bold text-white/10 group-hover:text-white/20 transition-colors duration-500">
+                    {step.id}
+                  </span>
+                  <div className="w-12 h-12 rounded-xl bg-neutral-950/50 backdrop-blur-md border border-neutral-700/50 group-hover:border-wallaby-accent/50 flex items-center justify-center text-wallaby-accent shadow-lg transition-all duration-500 group-hover:bg-wallaby-accent group-hover:text-neutral-950 group-hover:scale-110">
+                    {step.icon}
                   </div>
+                </div>
+
+                {/* Bottom content: Title + Desc */}
+                <div className="transform group-hover:-translate-y-2 transition-transform duration-500">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="h-px w-8 bg-wallaby-accent/50 group-hover:w-12 group-hover:bg-wallaby-accent transition-all duration-500" />
+                    <span className="text-wallaby-accent font-mono text-xs font-bold tracking-widest uppercase">Phase {step.id}</span>
+                  </div>
+                  <h3 className="text-2xl font-display font-bold uppercase tracking-wider text-white mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-neutral-400 text-sm leading-relaxed group-hover:text-neutral-200 transition-colors duration-500">
+                    {step.desc}
+                  </p>
                 </div>
               </div>
 
-              {/* Content Side */}
-              <div className={`${index % 2 === 1 ? 'md:order-1 md:text-right' : ''}`}>
-                <motion.div
-                  initial={{ opacity: 0, x: index % 2 === 1 ? 30 : -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.15 + 0.2 }}
-                >
-                  {/* Phase indicator */}
-                  <div className={`flex items-center gap-3 mb-4 ${index % 2 === 1 ? 'md:justify-end' : ''}`}>
-                    <span className="text-wallaby-accent font-mono text-sm font-bold tracking-wider">PHASE {step.id}</span>
-                    <div className="h-px w-12 bg-gradient-to-r from-wallaby-accent to-transparent" />
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-wider mb-6 text-white">
-                    {step.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-neutral-400 text-lg leading-relaxed mb-6">
-                    {step.desc}
-                  </p>
-
-                  {/* Visual connector to next step (desktop) */}
-                  {index < steps.length - 1 && (
-                    <div className={`hidden md:flex items-center gap-2 text-neutral-600 ${index % 2 === 1 ? 'justify-end' : ''}`}>
-                      <ChevronRight className="w-5 h-5 text-wallaby-accent/50" />
-                      <span className="text-sm uppercase tracking-wider">Next Phase</span>
-                    </div>
-                  )}
-                </motion.div>
-              </div>
+              {/* Hover Glow Edge Effect */}
+              <div className={`absolute inset-0 border-2 rounded-3xl bg-transparent border-transparent group-hover:border-wallaby-accent/30 pointer-events-none transition-colors duration-500 z-30`} />
             </motion.div>
           ))}
-        </div>
-
-        {/* Progress Timeline (Mobile) */}
-        <div className="md:hidden mt-12">
-          <div className="flex justify-between items-center px-4">
-            {steps.map((step, index) => (
-              <div key={index} className="flex flex-col items-center">
-                <div className="w-3 h-3 rounded-full bg-wallaby-accent" />
-                <span className="text-xs text-neutral-500 mt-2">{step.id}</span>
-              </div>
-            ))}
-          </div>
-          <div className="mt-2 mx-4 h-0.5 bg-gradient-to-r from-wallaby-accent via-wallaby-accent to-wallaby-accent/30 rounded-full" />
         </div>
 
         {/* Guarantee Block - Enhanced */}
@@ -212,7 +173,7 @@ const Process: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
-          className="mt-24 md:mt-32 relative max-w-4xl mx-auto"
+          className="mt-16 md:mt-20 relative max-w-4xl mx-auto"
         >
           {/* Background glow */}
           <div className="absolute inset-0 bg-gradient-to-r from-wallaby-accent/20 via-wallaby-accent/10 to-wallaby-accent/20 blur-3xl rounded-full opacity-40" />
