@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
       setScrolled(window.scrollY > 50);
 
       // Update active section based on scroll position
-      const sections = ['examples', 'pricing', 'process', 'about', 'why-us', 'contact'];
+      const sections = ['examples', 'pricing', 'process', 'about', 'contact'];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -33,7 +33,6 @@ const Navbar: React.FC = () => {
     { name: 'Pricing', href: '#pricing' },
     { name: 'Process', href: '#process' },
     { name: 'About', href: '#about' },
-    { name: 'Why Us', href: '#why-us' },
     { name: 'Contact', href: '#contact' },
   ];
 

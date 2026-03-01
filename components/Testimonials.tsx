@@ -99,8 +99,8 @@ const Testimonials: React.FC = () => {
       >
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div>
-            <div className="text-3xl md:text-4xl font-display font-bold text-wallaby-accent mb-2">150+</div>
-            <div className="text-neutral-400 text-sm uppercase tracking-wider">Happy Tradies</div>
+            <div className="text-3xl md:text-4xl font-display font-bold text-wallaby-accent mb-2">50+</div>
+            <div className="text-neutral-400 text-sm uppercase tracking-wider">ahppy tradeis</div>
           </div>
           <div>
             <div className="text-3xl md:text-4xl font-display font-bold text-wallaby-accent mb-2">12</div>
