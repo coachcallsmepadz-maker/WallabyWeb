@@ -3,7 +3,7 @@ import React from 'react';
 
 const Hero: React.FC = () => {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-wallaby-dark pt-28 md:pt-20">
+    <div className="relative min-h-screen flex items-end justify-center overflow-hidden bg-wallaby-dark pt-28 md:pt-20 pb-24 md:pb-32">
       {/* Background Graphic Elements */}
       <div className="absolute inset-0 z-0 opacity-100 pointer-events-none">
         <img
